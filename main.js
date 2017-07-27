@@ -1,6 +1,16 @@
 const {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} = Recharts;
+var change;
 
-var change = 'usd';
+// Get currecy
+change = prompt("Choose your favorite currency between EUR and USD.");
+change = change.toLowerCase();
+if (change == '' || change == 'usd' || change == 'dollar') {
+  var change = 'usd';
+}
+else if (change == 'eur' || change == 'euro') {
+  var change = 'eur';
+}
+
 
 setInterval(function(){
 
