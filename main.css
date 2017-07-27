@@ -1,0 +1,46 @@
+#btc-graph,
+#eth-graph{
+  min-height: 300px;
+  height: auto;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 5px;
+  padding: 0px;
+  margin-top: 20px;
+}
+#btc-data,
+#eth-data{
+  min-height: 300px;
+  height: auto;
+  padding: 0px;
+  margin-top: 20px;
+}
+#contents{
+  padding: 20px;
+}
+#btc-data .data,
+#eth-data .data{
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 5px;
+  height: 150px;
+  font-size: 3em;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.r1{
+  margin-bottom: 3px;
+}
+.r2{
+  margin-top: 3px;
+}
+.red{
+  border-color: #c0392b !important;
+  color: white;
+  background-color: #c0392b;
+}
+.green{
+  border-color: #27ae60 !important;
+  color: white;
+  background-color: #27ae60;
+}
