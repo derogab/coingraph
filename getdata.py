@@ -43,7 +43,7 @@ if success1 == True and success2 == True and success3 == True and success4 == Tr
     now = time.time()
 
     try:
-        con = _mysql.connect('', '', '', '')
+        con = _mysql.connect('localhost', 'coingraphs', 'CGpassword', 'coingraphs')
 
         # Save BTC value now
         con.query("INSERT INTO btc (time, usd, eur) VALUES ("+str(now)+", "+str(btc_usd)+", "+str(btc_eur)+");")

@@ -4,10 +4,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 # Connect to database
-define("DB_HOST", "");
-define("DB_NAME", "");
-define("DB_USER", "");
-define("DB_PASS", "");
+define("DB_HOST", "localhost");
+define("DB_NAME", "coingraphs");
+define("DB_USER", "coingraphs");
+define("DB_PASS", "CGpassword");
 # Mysqli
 $mysqli = mysqli_connect(DB_HOST,DB_NAME,DB_PASS,DB_NAME) or die("Error: Connection to database.");
 #PDO
