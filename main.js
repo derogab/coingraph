@@ -1,22 +1,39 @@
 const {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} = Recharts;
-var change;
 
-// Get currecy
-change = prompt("Choose your favorite currency between EUR and USD.");
-change = change.toLowerCase();
-if (change == '' || change == 'usd' || change == 'dollar') {
-  var change = 'usd';
-}
-else if (change == 'eur' || change == 'euro') {
-  var change = 'eur';
-}
+// Set default currency
+var change_btc = 'usd';
+var change_eth = 'usd';
+$('#btc-to-usd').addClass('btn-primary').removeClass('btn-default');
+$('#eth-to-usd').addClass('btn-primary').removeClass('btn-default');
 
+// Set onclick button
+$('#btc-to-usd').click(function(){
+  change_btc = 'usd';
+  $('#btc-to-usd').addClass('btn-primary').removeClass('btn-default');
+  $('#btc-to-eur').addClass('btn-default').removeClass('btn-primary');
+});
+$('#btc-to-eur').click(function(){
+  change_btc = 'eur';
+  $('#btc-to-eur').addClass('btn-primary').removeClass('btn-default');
+  $('#btc-to-usd').addClass('btn-default').removeClass('btn-primary');
+});
+$('#eth-to-usd').click(function(){
+  change_eth = 'usd';
+  $('#eth-to-usd').addClass('btn-primary').removeClass('btn-default');
+  $('#eth-to-eur').addClass('btn-default').removeClass('btn-primary');
+});
+$('#eth-to-eur').click(function(){
+  change_eth = 'eur';
+  $('#eth-to-eur').addClass('btn-primary').removeClass('btn-default');
+  $('#eth-to-usd').addClass('btn-default').removeClass('btn-primary');
+});
 
+// Start build graphs
 setInterval(function(){
 
 var allDataBTC = new Array();
 $.ajax({
-    url: "getdata.php?base=btc&change="+change,
+    url: "getdata.php?base=btc&change="+change_btc,
     dataType: "JSON",
     success: function(json){
         //here inside json variable you've the json returned by your PHP
@@ -29,7 +46,7 @@ $.ajax({
           allDataBTC.push(element[1]);
         });
 
-        document.getElementById('btc-value').innerHTML = (Number((allDataBTC[(allDataBTC.length)-1]['price']).toFixed(2)))+" "+(change.toUpperCase());
+        document.getElementById('btc-value').innerHTML = (Number((allDataBTC[(allDataBTC.length)-1]['price']).toFixed(2)))+" "+(change_btc.toUpperCase());
 
         if (allDataBTC[(allDataBTC.length)-1]['price'] > allDataBTC[(allDataBTC.length)-2]['price']) {
           $('#btc-value').addClass('green').removeClass('red');
@@ -60,7 +77,7 @@ $.ajax({
 
 var allDataETH = new Array();
 $.ajax({
-    url: "getdata.php?base=eth&change="+change,
+    url: "getdata.php?base=eth&change="+change_eth,
     dataType: "JSON",
     success: function(json){
         //here inside json variable you've the json returned by your PHP
@@ -73,7 +90,7 @@ $.ajax({
           allDataETH.push(element[1]);
         });
 
-        document.getElementById('eth-value').innerHTML = (Number((allDataETH[(allDataETH.length)-1]['price']).toFixed(2)))+" "+(change.toUpperCase());
+        document.getElementById('eth-value').innerHTML = (Number((allDataETH[(allDataETH.length)-1]['price']).toFixed(2)))+" "+(change_eth.toUpperCase());
 
         if (allDataETH[(allDataETH.length)-1]['price'] > allDataETH[(allDataETH.length)-2]['price']) {
           $('#eth-value').addClass('green').removeClass('red');

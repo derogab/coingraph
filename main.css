@@ -28,6 +28,12 @@
   padding-top: 40px;
   padding-bottom: 40px;
 }
+#btc-data .controls,
+#eth-data .controls{
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 5px;
+  height: 150px;
+}
 .r1{
   margin-bottom: 3px;
 }

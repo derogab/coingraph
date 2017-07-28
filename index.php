@@ -25,9 +25,7 @@
                 <div class="data" id="btc-value"></div>
               </div>
               <div class="col-md-6">
-                <div class="data">
-
-                </div>
+                <div class="data" id="btc-average"></div>
               </div>
             </div>
             <div class="row r2">
@@ -37,8 +35,18 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="data">
-
+                <div class="controls">
+                  <div class="row">
+                    <div class="col-md-4">
+                      Currency
+                    </div>
+                    <div class="col-md-4">
+                      <button type="button" name="btc-to-usd" id="btc-to-usd" class="btn btn-default">USD</button>
+                    </div>
+                    <div class="col-md-4">
+                      <button type="button" name="btc-to-eur" id="btc-to-eur" class="btn btn-default">EUR</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -58,9 +66,7 @@
                 <div class="data" id="eth-value"></div>
               </div>
               <div class="col-md-6">
-                <div class="data">
-
-                </div>
+                <div class="data" id="eth-average"></div>
               </div>
             </div>
             <div class="row r2">
@@ -70,8 +76,18 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="data">
-
+                <div class="controls">
+                  <div class="row">
+                    <div class="col-md-4">
+                      Currency
+                    </div>
+                    <div class="col-md-4">
+                      <button type="button" name="eth-to-usd" id="eth-to-usd" class="btn btn-default">USD</button>
+                    </div>
+                    <div class="col-md-4">
+                      <button type="button" name="eth-to-eur" id="eth-to-eur" class="btn btn-default">EUR</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
