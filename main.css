@@ -7,6 +7,25 @@
   padding: 0px;
   margin-top: 20px;
 }
+#btc-graph:before {
+    font-family: FontAwesome;
+    content: "\f15a";
+    position: absolute;
+    font-size: 28px;
+    right: 0;
+    margin-right: 25px;
+}
+#eth-graph:before {
+    content: '';
+    background-image: url('https://files.coinmarketcap.com/static/img/coins/32x32/ethereum.png');
+    position: absolute;
+    font-size: 30px;
+    right: 0;
+    margin-right: 22px;
+    margin-top: 7px;
+    width: 30px;
+    height: 30px;
+}
 #btc-data,
 #eth-data{
   min-height: 300px;

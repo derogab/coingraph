@@ -47,7 +47,7 @@ $.ajax({
         });
 
         // Insert current value
-        document.getElementById('btc-value').innerHTML = (Number((allDataBTC[(allDataBTC.length)-1]['price']).toFixed(2)))+" "+(change_btc.toUpperCase());
+        document.getElementById('btc-value').innerHTML = "<i class='fa fa-"+change_btc+"' aria-hidden='true'></i> "+(Number((allDataBTC[(allDataBTC.length)-1]['price']).toFixed(2)));
 
         // Insert border color
         if (allDataBTC[(allDataBTC.length)-1]['price'] > allDataBTC[(allDataBTC.length)-2]['price']) {
@@ -65,7 +65,7 @@ $.ajax({
         var average = sum/i;
 
         // Insert average value
-        document.getElementById('btc-average').innerHTML = (Number(average).toFixed(2))+" "+(change_btc.toUpperCase());
+        document.getElementById('btc-average').innerHTML = "<i class='fa fa-"+change_btc+"' aria-hidden='true'></i> "+(Number(average).toFixed(2));
 
         // Build graph
         var ChartBTC = React.createClass({
@@ -104,7 +104,7 @@ $.ajax({
         });
 
         // Insert current value
-        document.getElementById('eth-value').innerHTML = (Number((allDataETH[(allDataETH.length)-1]['price']).toFixed(2)))+" "+(change_eth.toUpperCase());
+        document.getElementById('eth-value').innerHTML = "<i class='fa fa-"+change_eth+"' aria-hidden='true'></i> "+(Number((allDataETH[(allDataETH.length)-1]['price']).toFixed(2)));
 
         // Insert border color
         if (allDataETH[(allDataETH.length)-1]['price'] > allDataETH[(allDataETH.length)-2]['price']) {
@@ -122,7 +122,7 @@ $.ajax({
         var average = sum/i;
 
         // Insert average value
-        document.getElementById('eth-average').innerHTML = (Number(average).toFixed(2))+" "+(change_eth.toUpperCase());
+        document.getElementById('eth-average').innerHTML = "<i class='fa fa-"+change_eth+"' aria-hidden='true'></i> "+(Number(average).toFixed(2));
 
         // Build graph
         var ChartETH = React.createClass({

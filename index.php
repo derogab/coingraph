@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Just for basic styling. -->
     <link rel="stylesheet" href="main.css" />
   </head>
@@ -41,10 +43,10 @@
                       Currency
                     </div>
                     <div class="col-md-4">
-                      <button type="button" name="btc-to-usd" id="btc-to-usd" class="btn btn-default">USD</button>
+                      <button type="button" name="btc-to-usd" id="btc-to-usd" class="btn btn-default"><i class="fa fa-usd" aria-hidden="true"></i></button>
                     </div>
                     <div class="col-md-4">
-                      <button type="button" name="btc-to-eur" id="btc-to-eur" class="btn btn-default">EUR</button>
+                      <button type="button" name="btc-to-eur" id="btc-to-eur" class="btn btn-default"><i class="fa fa-eur" aria-hidden="true"></i></button>
                     </div>
                   </div>
                 </div>
@@ -82,10 +84,10 @@
                       Currency
                     </div>
                     <div class="col-md-4">
-                      <button type="button" name="eth-to-usd" id="eth-to-usd" class="btn btn-default">USD</button>
+                      <button type="button" name="eth-to-usd" id="eth-to-usd" class="btn btn-default"><i class="fa fa-usd" aria-hidden="true"></i></button>
                     </div>
                     <div class="col-md-4">
-                      <button type="button" name="eth-to-eur" id="eth-to-eur" class="btn btn-default">EUR</button>
+                      <button type="button" name="eth-to-eur" id="eth-to-eur" class="btn btn-default"><i class="fa fa-eur" aria-hidden="true"></i></button>
                     </div>
                   </div>
                 </div>
