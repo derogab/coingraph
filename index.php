@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-md-6">
           <div id="btc-graph">
-
+            <h4>Loading...</h4>
           </div>
           <!--<iframe src="https://price.bitcoin.com/" style="width: 100%; min-height: 300px; height: auto; border: 1px solid rgb(204, 204, 204); border-radius: 5px; padding: 0px; margin-top: 20px;"></iframe>-->
         </div>
@@ -27,7 +27,7 @@
                 <div class="data" id="btc-value"></div>
               </div>
               <div class="col-md-6">
-                <div class="data" id="btc-average"></div>
+                <div class="data blue" id="btc-average"></div>
               </div>
             </div>
             <div class="row r2">
@@ -35,7 +35,7 @@
                 <div class="data" id="btc-percentage"></div>
               </div>
               <div class="col-md-6">
-                <div class="controls">
+                <div class="controls border-blue">
                   <div class="row">
                     <div class="col-md-12">
                       <h4>Data Controls</h4>
@@ -58,7 +58,7 @@
       <div class="row r1">
         <div class="col-md-6">
           <div id="eth-graph">
-
+            <h4>Loading...</h4>
           </div>
         </div>
         <div class="col-md-6">
@@ -68,7 +68,7 @@
                 <div class="data" id="eth-value"></div>
               </div>
               <div class="col-md-6">
-                <div class="data" id="eth-average"></div>
+                <div class="data blue" id="eth-average"></div>
               </div>
             </div>
             <div class="row r2">
@@ -76,7 +76,7 @@
                 <div class="data" id="eth-percentage"></div>
               </div>
               <div class="col-md-6">
-                <div class="controls">
+                <div class="controls border-blue">
                   <div class="row">
                     <div class="col-md-12">
                       <h4>Data Controls</h4>

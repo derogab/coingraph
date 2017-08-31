@@ -79,3 +79,12 @@
   border-color: #27ae60 !important;
   color: #27ae60;
 }
+.blue{
+  border-color: #275d8d !important;
+  color: white;
+  background-color: #275d8d;
+}
+.border-blue{
+  border-color: #275d8d !important;
+  color: #275d8d;
+}
