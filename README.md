@@ -20,6 +20,8 @@ Coingraphs is an **hackable cryptocoin graph builder**.
     </tr>
 </table>
 
+![Coingraphs Screenshot](screenshot.png)
+
 **Dependencies**
 ```shell
 # Install dependencies
