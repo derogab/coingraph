@@ -52,6 +52,8 @@
   border: 1px solid rgb(204, 204, 204);
   border-radius: 5px;
   height: 150px;
+
+  padding: 10px;
 }
 .r1{
   margin-bottom: 3px;
@@ -68,4 +70,12 @@
   border-color: #27ae60 !important;
   color: white;
   background-color: #27ae60;
+}
+.border-red{
+  border-color: #c0392b !important;
+  color: #c0392b;
+}
+.border-green{
+  border-color: #27ae60 !important;
+  color: #27ae60;
 }

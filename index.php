@@ -32,21 +32,21 @@
             </div>
             <div class="row r2">
               <div class="col-md-6">
-                <div class="data">
-
-                </div>
+                <div class="data" id="btc-percentage"></div>
               </div>
               <div class="col-md-6">
                 <div class="controls">
                   <div class="row">
-                    <div class="col-md-4">
-                      Currency
+                    <div class="col-md-12">
+                      <h4>Data Controls</h4>
                     </div>
-                    <div class="col-md-4">
-                      <button type="button" name="btc-to-usd" id="btc-to-usd" class="btn btn-default"><i class="fa fa-usd" aria-hidden="true"></i></button>
-                    </div>
-                    <div class="col-md-4">
-                      <button type="button" name="btc-to-eur" id="btc-to-eur" class="btn btn-default"><i class="fa fa-eur" aria-hidden="true"></i></button>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="btn-group">
+                        <button type="button" name="btc-to-usd" id="btc-to-usd" class="btn btn-default"><i class="fa fa-usd" aria-hidden="true"></i></button>
+                        <button type="button" name="btc-to-eur" id="btc-to-eur" class="btn btn-default"><i class="fa fa-eur" aria-hidden="true"></i></button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -73,21 +73,21 @@
             </div>
             <div class="row r2">
               <div class="col-md-6">
-                <div class="data">
-
-                </div>
+                <div class="data" id="eth-percentage"></div>
               </div>
               <div class="col-md-6">
                 <div class="controls">
                   <div class="row">
-                    <div class="col-md-4">
-                      Currency
+                    <div class="col-md-12">
+                      <h4>Data Controls</h4>
                     </div>
-                    <div class="col-md-4">
-                      <button type="button" name="eth-to-usd" id="eth-to-usd" class="btn btn-default"><i class="fa fa-usd" aria-hidden="true"></i></button>
-                    </div>
-                    <div class="col-md-4">
-                      <button type="button" name="eth-to-eur" id="eth-to-eur" class="btn btn-default"><i class="fa fa-eur" aria-hidden="true"></i></button>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="btn-group">
+                        <button type="button" name="eth-to-usd" id="eth-to-usd" class="btn btn-default"><i class="fa fa-usd" aria-hidden="true"></i></button>
+                        <button type="button" name="eth-to-eur" id="eth-to-eur" class="btn btn-default"><i class="fa fa-eur" aria-hidden="true"></i></button>
+                      </div>
                     </div>
                   </div>
                 </div>

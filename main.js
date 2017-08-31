@@ -67,6 +67,22 @@ $.ajax({
         // Insert average value
         document.getElementById('btc-average').innerHTML = "<i class='fa fa-"+change_btc+"' aria-hidden='true'></i> "+(Number(average).toFixed(2));
 
+        // Calculate the percentage increase/decrease over the percentage
+        var diff = allDataBTC[(allDataBTC.length)-1]['price'] - average;
+        // percentage : 100 = diff : average
+        var percentage = (100*diff)/average;
+
+        // Insert percentage value
+        document.getElementById('btc-percentage').innerHTML = (Number(percentage).toFixed(2)+"%");
+        
+        // Insert border color
+        if (percentage > 0) {
+          $('#btc-percentage').addClass('border-green').removeClass('border-red');
+        }
+        else if (allDataBTC[(allDataBTC.length)-1]['price'] < allDataBTC[(allDataBTC.length)-2]['price']) {
+          $('#btc-percentage').addClass('border-red').removeClass('border-green');
+        }
+
         // Build graph
         var ChartBTC = React.createClass({
         	render () {
@@ -123,6 +139,22 @@ $.ajax({
 
         // Insert average value
         document.getElementById('eth-average').innerHTML = "<i class='fa fa-"+change_eth+"' aria-hidden='true'></i> "+(Number(average).toFixed(2));
+
+        // Calculate the percentage increase/decrease over the percentage
+        var diff = allDataETH[(allDataETH.length)-1]['price'] - average;
+        // percentage : 100 = diff : average
+        var percentage = (100*diff)/average;
+
+        // Insert percentage value
+        document.getElementById('eth-percentage').innerHTML = (Number(percentage).toFixed(2)+"%");
+        
+        // Insert border color
+        if (percentage > 0) {
+          $('#eth-percentage').addClass('border-green').removeClass('border-red');
+        }
+        else if (allDataETH[(allDataETH.length)-1]['price'] < allDataETH[(allDataETH.length)-2]['price']) {
+          $('#eth-percentage').addClass('border-red').removeClass('border-green');
+        }
 
         // Build graph
         var ChartETH = React.createClass({
