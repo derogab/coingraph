@@ -1,4 +1,11 @@
-## Coingraphs
+# Coingraphs
+
+[![Version](https://img.shields.io/badge/version-0.1.0-brightgreen.svg)](https://github.com/derogab/coingraphs)
+[![Release](https://img.shields.io/badge/release-beta-lightgrey.svg)](https://github.com/derogab/coingraphs)
+[![GitHub stars](https://img.shields.io/github/stars/derogab/coingraphs.svg)](https://github.com/derogab/coingraphs/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/derogab/coingraphs.svg)](https://github.com/derogab/coingraphs/network)
+[![GitHub issues](https://img.shields.io/github/issues/derogab/coingraphs.svg)](https://github.com/derogab/coingraphs/issues)
+
 Coingraphs is an **hackable cryptocoin graph builder**.
 
 ![Coingraphs Screenshot](screenshot.png)
@@ -17,6 +24,7 @@ pip install json requests sys time
 ```shell
 # Open the apache folder
 cd /var/www/
+
 # Clone the repo
 git clone https://github.com/derogab/coingraphs
 ```
