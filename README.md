@@ -7,7 +7,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/derogab/coingraph.svg)](https://github.com/derogab/coingraph/issues)
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/derogab)
 
-Coingraph is a **real-time graph for cryptocoins**.
+Coingraph is a **real-time graph for cryptocurrencies**.
 
 ![Coingraph Screenshot](screenshot.png)
 
