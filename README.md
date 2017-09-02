@@ -6,7 +6,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/derogab/coingraphs.svg)](https://github.com/derogab/coingraphs/network)
 [![GitHub issues](https://img.shields.io/github/issues/derogab/coingraphs.svg)](https://github.com/derogab/coingraphs/issues)
 
-Coingraphs is a **real-time graphs for cryptocoins**.
+Coingraphs is a **real-time graph for cryptocoins**.
 
 ![Coingraphs Screenshot](screenshot.png)
 
