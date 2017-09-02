@@ -1,14 +1,14 @@
-# Coingraphs
+# Coingraph
 
-[![Version](https://img.shields.io/badge/version-0.1.0-brightgreen.svg)](https://github.com/derogab/coingraphs)
-[![Release](https://img.shields.io/badge/release-beta-lightgrey.svg)](https://github.com/derogab/coingraphs)
-[![GitHub stars](https://img.shields.io/github/stars/derogab/coingraphs.svg)](https://github.com/derogab/coingraphs/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/derogab/coingraphs.svg)](https://github.com/derogab/coingraphs/network)
-[![GitHub issues](https://img.shields.io/github/issues/derogab/coingraphs.svg)](https://github.com/derogab/coingraphs/issues)
+[![Version](https://img.shields.io/badge/version-0.1.0-brightgreen.svg)](https://github.com/derogab/coingraph)
+[![Release](https://img.shields.io/badge/release-beta-lightgrey.svg)](https://github.com/derogab/coingraph)
+[![GitHub stars](https://img.shields.io/github/stars/derogab/coingraph.svg)](https://github.com/derogab/coingraph/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/derogab/coingraph.svg)](https://github.com/derogab/coingraph/network)
+[![GitHub issues](https://img.shields.io/github/issues/derogab/coingraph.svg)](https://github.com/derogab/coingraph/issues)
 
-Coingraphs is a **real-time graph for cryptocoins**.
+Coingraph is a **real-time graph for cryptocoins**.
 
-![Coingraphs Screenshot](screenshot.png)
+![Coingraph Screenshot](screenshot.png)
 
 **Dependencies**
 ```shell
@@ -26,7 +26,7 @@ pip install json requests sys time
 cd /var/www/
 
 # Clone the repo
-git clone https://github.com/derogab/coingraphs
+git clone https://github.com/derogab/coingraph
 ```
 
 **Configuration**
@@ -37,12 +37,12 @@ Open `getdata.php` and `getdata.py` to customize mysql db connection.
 
 Insert a cronjob. You can edit your cronjob list by writing `crontab -e`. 
 ```
-*/1 * * * * /usr/bin/python /var/www/coingraphs/getdata.py
+*/1 * * * * /usr/bin/python /var/www/coingraph/getdata.py
 ```
 
 **Usage**
 
-Open `http://localhost/coingraphs` to view real-time graphs.
+Open `http://localhost/coingraph` to view real-time graphs.
 
 **Donate**
 
