@@ -5,6 +5,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/derogab/coingraph.svg)](https://github.com/derogab/coingraph/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/derogab/coingraph.svg)](https://github.com/derogab/coingraph/network)
 [![GitHub issues](https://img.shields.io/github/issues/derogab/coingraph.svg)](https://github.com/derogab/coingraph/issues)
+[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/derogab)
 
 Coingraph is a **real-time graph for cryptocoins**.
 
