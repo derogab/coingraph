@@ -1,9 +1,10 @@
+from   tornado.options import define, options
 import tornado.ioloop
 import tornado.web
 import MySQLdb
 import calendar, time
 import json
-
+import os
 
 # Main handler, simply returns index.html
 class MainHandler(tornado.web.RequestHandler):
@@ -25,8 +26,16 @@ class ResourceHandler(tornado.web.RequestHandler):
 class DataHandler(tornado.web.RequestHandler):
 
 	def get(self, coin, change):
-		# Establish connection
-		self.db = MySQLdb.connect('localhost', 'coingraphs', 'CGpassword', 'coingraphs')
+
+		sql_conf = {
+			'host': options.sql_host,
+			'port': options.sql_port,
+			'user': options.sql_user,
+			'passwd': options.sql_password,
+			'db': options.sql_database
+		}
+
+		self.db = MySQLdb.connect(**sql_conf)
 		c  = self.db.cursor()
 		finish = True
 
@@ -56,12 +65,24 @@ class DataHandler(tornado.web.RequestHandler):
 			# already parses JSON from PHP
 			self.write('{"'+coin+'":'+json.dumps(json_data)+"}") 
 
+def init_config():
+	define("config", default="conf.py", help="Path to config file",
+       callback=lambda path: tornado.options.parse_config_file(path, final=False))
+	define("sql_host", default="127.0.0.1", help="Hostname / IP of the SQL server")
+	define("sql_port", default=3306, type=int, help="Port where the SQL server is listening to")
+	define("sql_user", default="coingraphs", help="SQL server username")
+	define("sql_password", default="CGpassword", help="SQL server password")
+	define("sql_database", default="coingraphs", help="SQL database to use")
 
 def make_app():
 
 	settings = {
 		"debug": True # Probably remove this in production, allows live code reloading
 	}
+
+	init_config()
+	tornado.options.parse_command_line()
+	tornado.options.parse_config_file(options.config)
 
 	# Build our routes
 	return tornado.web.Application([
