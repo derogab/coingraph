@@ -36,7 +36,6 @@ $.ajax({
     url: "getdata/btc/"+change_btc,
     dataType: "JSON",
     success: function(json){
-      console.log(json);
         //here inside json variable you've the json returned by your PHP
         var btc = json.btc;
         var data = Object.keys(btc).map(function(e) {

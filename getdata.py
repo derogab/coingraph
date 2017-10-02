@@ -1,5 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+# 
+# Get values from coin traking websites and add
+# to cache database
 import json
 import requests
 import _mysql
@@ -50,7 +53,7 @@ if success1 == True and success2 == True and success3 == True and success4 == Tr
         # Save ETH value now
         con.query("INSERT INTO eth (time, usd, eur) VALUES ("+str(now)+", "+str(eth_usd)+", "+str(eth_eur)+");")
 
-    except e:
+    except  e:
 
         print("Error %d: %s" % (e.args[0], e.args[1]))
         sys.exit(1)

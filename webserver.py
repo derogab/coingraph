@@ -21,20 +21,28 @@ class DataHandler(tornado.web.RequestHandler):
 	def get(self, coin, change):
 		self.db = MySQLdb.connect('localhost', 'coingraphs', 'CGpassword', 'coingraphs')
 		c  = self.db.cursor()
-
+		finish = True
 		if coin != "eth" and coin != "btc": # Quick dirty workaround for sanitization
 			self.write('{"message":"invalid_coin"}')
-		c.execute("SELECT time, %s AS price FROM "+coin+" WHERE time > %s ORDER BY time ASC",
-					   (change, calendar.timegm(time.gmtime()) - 36000))
+			finish = False
+		if change != "usd" and change != "eur":
+			self.write('{"message":"invalid_change"}')
+			finish = False
 
-		row_headers=[x[0] for x in c.description]
-		data = c.fetchall()
-		print(data)
-		json_data = []
-		for row in data:
-			json_data.append(dict(zip(row_headers,row)))
+		if finish == True:
+			q = "SELECT 'time', `%s` AS price FROM `%s` WHERE time > %%s ORDER BY time ASC" % (change, coin)
+			c.execute(q % (calendar.timegm(time.gmtime()) - 36000))
 
-		self.write(json.dumps(json_data))
+			row_headers=[x[0] for x in c.description]
+			data = c.fetchall()
+
+			json_data = []
+			for row in data:
+				json_data.append(dict(zip(row_headers,row)))
+
+			self.db.close()
+
+			self.write('{"'+coin+'":'+json.dumps(json_data)+"}")
 
 
 def make_app():
