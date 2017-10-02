@@ -68,6 +68,9 @@ class DataHandler(tornado.web.RequestHandler):
 def init_config():
 	define("config", default="conf.py", help="Path to config file",
        callback=lambda path: tornado.options.parse_config_file(path, final=False))
+
+	define("debug", default=False, type=bool, help="Enable debug mode")
+
 	define("sql_host", default="127.0.0.1", help="Hostname / IP of the SQL server")
 	define("sql_port", default=3306, type=int, help="Port where the SQL server is listening to")
 	define("sql_user", default="coingraphs", help="SQL server username")
@@ -76,13 +79,13 @@ def init_config():
 
 def make_app():
 
-	settings = {
-		"debug": True # Probably remove this in production, allows live code reloading
-	}
-
 	init_config()
 	tornado.options.parse_command_line()
 	tornado.options.parse_config_file(options.config)
+
+	settings = {
+		"debug": options.debug
+	}
 
 	# Build our routes
 	return tornado.web.Application([
