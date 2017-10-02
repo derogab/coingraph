@@ -1,4 +1,9 @@
 <?php
+// This is the old PHP file for
+// getting coin values from the database
+// and returning is as JSON. Replaced by function
+// in webserver.py
+
 #Show Error
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);

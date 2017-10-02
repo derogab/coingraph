@@ -33,7 +33,7 @@ setInterval(function(){
 
 var allDataBTC = new Array();
 $.ajax({
-    url: "getdata.php?base=btc&change="+change_btc,
+    url: "getdata/btc/"+change_btc,
     dataType: "JSON",
     success: function(json){
         //here inside json variable you've the json returned by your PHP
@@ -106,7 +106,7 @@ $.ajax({
 
 var allDataETH = new Array();
 $.ajax({
-    url: "getdata.php?base=eth&change="+change_eth,
+    url: "getdata/eth/"+change_eth,
     dataType: "JSON",
     success: function(json){
         //here inside json variable you've the json returned by your PHP
