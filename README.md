@@ -14,36 +14,34 @@ Coingraph is a **real-time graph for cryptocurrencies**.
 **Dependencies**
 ```shell
 # Install dependencies
-sudo apt-get install apache2 php5 libapache2-mod-php5 php5-mcrypt mysql-server php5-mysql python python3
+sudo apt-get install python python3 libmysqlclient-dev
 
 # Install python dependencies
-pip install json requests sys time
+pip install json requests sys time tornado MySQL-python
 ```
 
 **Download**
 
 ```shell
-# Open the apache folder
-cd /var/www/
-
-# Clone the repo
 git clone https://github.com/derogab/coingraph
+cd coingraph
+python webserver.py
 ```
 
 **Configuration**
 
-Open `getdata.php` and `getdata.py` to customize mysql db connection.
+Open `webserver.py` and `getdata.py` to customize mysql db connection.
 
 **Cronjob**
 
 Insert a cronjob. You can edit your cronjob list by writing `crontab -e`. 
 ```
-*/1 * * * * /usr/bin/python /var/www/coingraph/getdata.py
+*/1 * * * * /usr/bin/python ~/coingraph/getdata.py
 ```
 
 **Usage**
 
-Open `http://localhost/coingraph` to view real-time graphs.
+Open `http://localhost:8080` to view real-time graphs.
 
 **Donate**
 
