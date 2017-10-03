@@ -12,16 +12,6 @@ class MainHandler(tornado.web.RequestHandler):
 	def get(self):
 		self.render("index.html")
 
-# Return "assets" aka javascript and css files. 
-# Uses Content-Type of CSS because CSS won't work
-# without it and JavaScript doesn't seem affected
-class ResourceHandler(tornado.web.RequestHandler):
-
-	def get(self, source):
-		resource = open(source).read()
-		self.set_header("Content-Type", 'text/css; charset="utf-8"')
-		self.write(resource)
-
 # Fetch, parse and return data from database
 class DataHandler(tornado.web.RequestHandler):
 
@@ -90,7 +80,7 @@ def make_app():
 	# Build our routes
 	return tornado.web.Application([
 		(r"/", MainHandler),
-		(r"/assets/(.*)", ResourceHandler),
+		(r"/assets/(.*)", tornado.web.StaticFileHandler, {'path': 'assets/'}),
 		(r"/getdata/(.*)/(.*)", DataHandler)
 	], **settings)
 
