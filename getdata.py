@@ -1,66 +1,41 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 # 
-# Get values from coin traking websites and add
-# to cache database
+# Get values from coin tracking websites and add
+# to cache database (v2)
 import json
 import requests
-import _mysql
-import sys
+import MySQLdb
 import time
 
-# Get data value
+# Our base URL for Cryptonator
+baseurl = "https://api.cryptonator.com/api/ticker/"
 
-# BTC - USD
-r = requests.get(url='https://api.cryptonator.com/api/ticker/btc-usd')
-data = r.json()
+# Currencies we want to track
+currencies = ["usd", "eur"]
+# Coins we want to track
+coins = ["eth", "btc"]
 
-# BTC - EUR
-success1 = data['success']
-btc_usd = data['ticker']['price'];
+# Establish database connection
+db = MySQLdb.connect('localhost', 'coingraphs', 'CGpassword', 'coingraphs')
+c = db.cursor()
 
-# BTC - EUR
-r = requests.get(url='https://api.cryptonator.com/api/ticker/btc-eur')
-data = r.json()
+# Iterate through coins
+for coin in coins:
+    # Sub-iteration of currencies
+    for currency in currencies:
+        url = baseurl + coin + "-" + currency
+        r = requests.get(url=url)
+        data = r.json()
+        if data['success'] == True:
+            values[coin][currency] = data['ticket']['price']
+        else:
+            values[coin][currency] = 0
 
-success2 = data['success']
-btc_eur = data['ticker']['price'];
-
-
-# ETH - USD
-r = requests.get(url='https://api.cryptonator.com/api/ticker/eth-usd')
-data = r.json()
-
-success3 = data['success']
-eth_usd = data['ticker']['price'];
-
-# ETH - EUR
-r = requests.get(url='https://api.cryptonator.com/api/ticker/eth-eur')
-data = r.json()
-
-success4 = data['success']
-eth_eur = data['ticker']['price'];
-
-if success1 == True and success2 == True and success3 == True and success4 == True:
-
+    # We do coins -> currency so that for each coin
+    # we can do the insert query during the for
     now = time.time()
+    c.execute("INSERT INTO " + coin + " (time,usd,eur) VALUES " +
+        str(now) + ", " + str(values[coin][0] + ", " + str(values[coin][1])))
 
-    try:
-        con = _mysql.connect('localhost', 'coingraphs', 'CGpassword', 'coingraphs')
-
-        # Save BTC value now
-        con.query("INSERT INTO btc (time, usd, eur) VALUES ("+str(now)+", "+str(btc_usd)+", "+str(btc_eur)+");")
-        # Save ETH value now
-        con.query("INSERT INTO eth (time, usd, eur) VALUES ("+str(now)+", "+str(eth_usd)+", "+str(eth_eur)+");")
-
-    except  e:
-
-        print("Error %d: %s" % (e.args[0], e.args[1]))
-        sys.exit(1)
-
-    finally:
-
-        if con:
-            con.close()
-
-    pass
+db.close()
