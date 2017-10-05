@@ -24,11 +24,14 @@ c = db.cursor()
 
 # Iterate through coins
 for coin in coins:
+
     # Sub-iteration of currencies
     for currency in currencies:
+
         url = baseurl + coin + "-" + currency
         r = requests.get(url=url)
         data = r.json()
+
         if data['success'] == True:
             values[coin][currency] = data['ticker']['price']
         else:
