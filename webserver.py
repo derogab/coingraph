@@ -91,7 +91,7 @@ def run_app():
 	app.listen(8080) # Can run on port 80 but requires sudo on *nix
 	print("Webserver listening on port 8080")
 
-	tornado.ioloop.IOLoop.current().start()
 	getdata.Loop(options.get_data_interval)
+	tornado.ioloop.IOLoop.current().start()
 
 run_app()

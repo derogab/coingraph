@@ -7,8 +7,7 @@ import json
 import requests
 import MySQLdb
 import time
-
-print("Fetching new data @" + str(time.time()))
+import threading
 
 # Our base URL for Cryptonator
 baseurl = "https://api.cryptonator.com/api/ticker/"
@@ -20,6 +19,8 @@ coins = ["eth", "btc"]
 
 values = {"eth":{},"btc":{}}
 def GetData():
+    print("Fetching new data @" + str(time.time()))
+
     # Establish database connection
     db = MySQLdb.connect('localhost', 'coingraphs', 'CGpassword', 'coingraphs')
     c = db.cursor()
@@ -48,6 +49,13 @@ def GetData():
     db.commit()
     db.close()
 
-def Loop():
+# If webserver calls loop
+def Loop(interval):
     GetData()
-    threading.Timer(Loop).start()
+    l = threading.Timer(interval, Loop)
+    l.daemon = True
+    l.start()
+
+# If launched as daemon
+if __name__ == "__main__":
+    GetData()
