@@ -5,6 +5,7 @@ import MySQLdb
 import calendar, time
 import json
 import os
+import getdata
 
 # Main handler, simply returns index.html
 class MainHandler(tornado.web.RequestHandler):
@@ -66,6 +67,7 @@ def init_config():
 	define("sql_user", default="coingraphs", help="SQL server username")
 	define("sql_password", default="CGpassword", help="SQL server password")
 	define("sql_database", default="coingraphs", help="SQL database to use")
+	define("get_data_interval", default=86400, help="Interval between pulling new data for cache")
 
 def make_app():
 
@@ -90,5 +92,6 @@ def run_app():
 	print("Webserver listening on port 8080")
 
 	tornado.ioloop.IOLoop.current().start()
+	getdata.Loop(options.get_data_interval)
 
 run_app()
