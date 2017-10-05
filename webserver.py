@@ -1,9 +1,10 @@
+from   tornado.options import define, options
 import tornado.ioloop
 import tornado.web
 import MySQLdb
 import calendar, time
 import json
-
+import os
 
 # Main handler, simply returns index.html
 class MainHandler(tornado.web.RequestHandler):
@@ -11,22 +12,20 @@ class MainHandler(tornado.web.RequestHandler):
 	def get(self):
 		self.render("index.html")
 
-# Return "assets" aka javascript and css files. 
-# Uses Content-Type of CSS because CSS won't work
-# without it and JavaScript doesn't seem affected
-class ResourceHandler(tornado.web.RequestHandler):
-
-	def get(self, source):
-		resource = open(source).read()
-		self.set_header("Content-Type", 'text/css; charset="utf-8"')
-		self.write(resource)
-
 # Fetch, parse and return data from database
 class DataHandler(tornado.web.RequestHandler):
 
 	def get(self, coin, change):
-		# Establish connection
-		self.db = MySQLdb.connect('localhost', 'coingraphs', 'CGpassword', 'coingraphs')
+
+		sql_conf = {
+			'host': options.sql_host,
+			'port': options.sql_port,
+			'user': options.sql_user,
+			'passwd': options.sql_password,
+			'db': options.sql_database
+		}
+
+		self.db = MySQLdb.connect(**sql_conf)
 		c  = self.db.cursor()
 		finish = True
 
@@ -56,17 +55,32 @@ class DataHandler(tornado.web.RequestHandler):
 			# already parses JSON from PHP
 			self.write('{"'+coin+'":'+json.dumps(json_data)+"}") 
 
+def init_config():
+	define("config", default="conf.py", help="Path to config file",
+       callback=lambda path: tornado.options.parse_config_file(path, final=False))
+
+	define("debug", default=False, type=bool, help="Enable debug mode")
+
+	define("sql_host", default="127.0.0.1", help="Hostname / IP of the SQL server")
+	define("sql_port", default=3306, type=int, help="Port where the SQL server is listening to")
+	define("sql_user", default="coingraphs", help="SQL server username")
+	define("sql_password", default="CGpassword", help="SQL server password")
+	define("sql_database", default="coingraphs", help="SQL database to use")
 
 def make_app():
 
+	init_config()
+	tornado.options.parse_command_line()
+	tornado.options.parse_config_file(options.config)
+
 	settings = {
-		"debug": True # Probably remove this in production, allows live code reloading
+		"debug": options.debug
 	}
 
 	# Build our routes
 	return tornado.web.Application([
 		(r"/", MainHandler),
-		(r"/assets/(.*)", ResourceHandler),
+		(r"/assets/(.*)", tornado.web.StaticFileHandler, {'path': 'assets/'}),
 		(r"/getdata/(.*)/(.*)", DataHandler)
 	], **settings)
 
