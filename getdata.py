@@ -16,6 +16,8 @@ currencies = ["usd", "eur"]
 # Coins we want to track
 coins = ["eth", "btc"]
 
+values = {"eth":{},"btc":{}}
+
 # Establish database connection
 db = MySQLdb.connect('localhost', 'coingraphs', 'CGpassword', 'coingraphs')
 c = db.cursor()
@@ -28,14 +30,15 @@ for coin in coins:
         r = requests.get(url=url)
         data = r.json()
         if data['success'] == True:
-            values[coin][currency] = data['ticket']['price']
+            values[coin][currency] = data['ticker']['price']
         else:
             values[coin][currency] = 0
 
     # We do coins -> currency so that for each coin
     # we can do the insert query during the for
     now = time.time()
-    c.execute("INSERT INTO " + coin + " (time,usd,eur) VALUES " +
-        str(now) + ", " + str(values[coin][0] + ", " + str(values[coin][1])))
+    c.execute("INSERT INTO " + coin + " (time,usd,eur) VALUES (" +
+        str(now) + ", " + str(values[coin]["usd"] + ", " + str(values[coin]["eur"] + ")")))
 
+db.commit()
 db.close()
