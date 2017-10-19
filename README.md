@@ -8,6 +8,7 @@
 [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg)](https://paypal.me/derogab)
 
 Coingraph is a **real-time graph for cryptocurrencies**.
+Powered by Python, MySQL and Cryptonator.
 
 ![Coingraph Screenshot](screenshot.png)
 
@@ -30,19 +31,19 @@ python webserver.py
 
 **Configuration**
 
-Open `webserver.py` and `getdata.py` to customize mysql db connection.
+Edit `webserver.py` and `getdata.py` to customize your mysql database connection.
 
 **Cronjob**
 
-Insert a cronjob. You can edit your cronjob list by writing `crontab -e`. 
+Insert a cronjob. You can edit your cronjob list from the terminal command `crontab -e`. 
 ```
 */1 * * * * /usr/bin/python ~/coingraph/getdata.py
 ```
 
 **Usage**
 
-Open `http://localhost:8080` to view real-time graphs.
+Open `http://localhost:8080` in your browser to view real-time graphs.
 
 **Donate**
 
-If this project help you reduce time to develop, you can [give me a cup of coffee](https://www.paypal.me/derogab) :) 
+If this project helps you reduce your development time please considering [giving me a cup of coffee](https://www.paypal.me/derogab) :) 
