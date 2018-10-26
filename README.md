@@ -43,7 +43,3 @@ Insert a cronjob. You can edit your cronjob list from the terminal command `cron
 **Usage**
 
 Open `http://localhost:8080` in your browser to view real-time graphs.
-
-**Donate**
-
-If this project helps you reduce your development time please considering [giving me a cup of coffee](https://www.paypal.me/derogab) :) 
