@@ -1,18 +1,18 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
-import './Ethereum.css';
+import './index.css';
 
 
-function Ethereum(props) {
+function Bitcoin(props) {
 
   return (
-    <div className="Ethereum">
-      <header className="Ethereum-header">
+    <div className="Bitcoin">
+      <header className="Bitcoin-header">
       </header>
-      <div className="Ethereum-body">
+      <div className="Bitcoin-body">
 
       <Row>
         <Col className="with-border set-height">
@@ -50,4 +50,4 @@ function Ethereum(props) {
   );
 }
 
-export default Ethereum;
+export default Bitcoin;
