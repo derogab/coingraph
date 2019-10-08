@@ -4,6 +4,8 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function ColumnData({data}) {
     return (
         <Col className="with-border value-space">
