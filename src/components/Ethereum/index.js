@@ -1,9 +1,8 @@
 import React from 'react';
 
 import Coin from '../Coin'
+
 import './index.css';
-
-
 
 function Ethereum(props) {
   return (
