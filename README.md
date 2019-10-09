@@ -6,13 +6,14 @@ Coingraph is a **real-time graph for cryptocurrencies**.
 **This version is still under development!**
 
 ---
-
 **Dependencies**
-```shell
-npm install
+
+```shell	
+yarn
 ```
 
 **Usage**
-```shell
-npm install
+
+```shell	
+yarn start
 ```
