@@ -4,15 +4,11 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
+import ColumnData from './ColumnData'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function ColumnData({data}) {
-    return (
-        <Col className="with-border value-space">
-          <h1>{data}</h1>
-        </Col>
-    )
-}
+
 function Coin({datagraph, dataset, prefix}) {
 
   return (
@@ -35,7 +31,7 @@ function Coin({datagraph, dataset, prefix}) {
               <ColumnData data={dataset.data2} />
           </Row>
           <Row>
-            <ColumnData data={dataset.data2} />
+            <ColumnData data={dataset.data3} />
             <ColumnData data={dataset.data4} />
           </Row>
         </Col>
