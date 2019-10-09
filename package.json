@@ -4,11 +4,12 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "react-bootstrap": "^1.0.0-beta.14",
-    "recharts": "^1.7.1",
+    "prop-types": "^15.7.2",
     "react": "^16.10.2",
+    "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "recharts": "^1.7.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,5 +31,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0"
   }
 }
