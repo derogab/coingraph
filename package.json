@@ -13,7 +13,7 @@
     "recharts": "^1.7.1"
   },
   "scripts": {
-    "dev:mock-server": "mock-server --watch --delay 1000 --require @babel/register",
+    "dev:mock-server": "mock-server --watch --delay 1000",
     "dev:dev-server": "react-scripts start",
     "dev": "npm-run-all -p dev:*",
     "start": "react-scripts start",
