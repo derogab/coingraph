@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Bitcoin from './Bitcoin';
+import Ethereum from './';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Bitcoin />, div);
+  ReactDOM.render(<Ethereum />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

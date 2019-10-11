@@ -12,8 +12,15 @@ Coingraph is a **real-time graph for cryptocurrencies**.
 yarn
 ```
 
-**Usage**
+**Usage in development**
+
+```shell	
+yarn dev
+```
+
+**Usage in production**
 
 ```shell	
 yarn start
 ```
+

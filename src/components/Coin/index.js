@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types'
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
@@ -43,4 +44,29 @@ function Coin({datagraph, dataset, prefix}) {
   );
 }
 
+Coin.propTypes = {
+  datagraph: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    uv: PropTypes.number,
+    pv: PropTypes.number,
+    amt: PropTypes.number
+  })),
+  prefix: PropTypes.string,
+  dataset: PropTypes.shape({
+    data1: PropTypes.string,
+    data2: PropTypes.string,
+    data3: PropTypes.string,
+    data4: PropTypes.string
+  })
+}
+Coin.defaultProps = {
+  datagraph: [],
+  prefix: '',
+  dataset: {
+    data1: '',
+    data2: '',
+    data3: '',
+    data4: ''
+  }
+}
 export default Coin;
