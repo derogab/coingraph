@@ -12,11 +12,15 @@ export default class CoinsContainer extends Component {
             data: null,
             isFetchError: false
         }
+        this.isUnmounting = false
     }
 
     componentDidMount() {
         axios.get('/coins-data/')
             .then(response => {
+                if(this.isUnmounting) {
+                    return
+                }
                 const {data} = response
                 this.setState({
                     data,
@@ -24,11 +28,17 @@ export default class CoinsContainer extends Component {
                 })
             })
             .catch(error =>{
+                if(this.isUnmounting) {
+                    return
+                }
                 this.setState({
                     data: null,
-                    isError: true
+                    isFetchError: true
                 }, () => console.log(error.message))
             })
+    }
+    componentWillUnmount(){
+        this.isUnmounting = true
     }
     render() {
         const {data, isFetchError} = this.state
