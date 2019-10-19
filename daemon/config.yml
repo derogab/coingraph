@@ -3,6 +3,8 @@ api:
   timeout: 60
 db:
   file: db.json
+server:
+  port: 8000
 cryptocurrencies:
   - bitcoin
   - ethereum
