@@ -1,4 +1,4 @@
-module.exports = function(db) {
+module.exports = function(db, config) {
     
     const axios = require('axios');
 
@@ -6,10 +6,7 @@ module.exports = function(db) {
      * Cryptocurrencies 
      * 
     */
-    cryptocurrencies = [
-        'bitcoin',
-        'ethereum'
-    ];
+    cryptocurrencies = config.cryptocurrencies;
 
     /** 
      * Historical Data
@@ -58,7 +55,7 @@ module.exports = function(db) {
             // always executed
             setTimeout(function(){ 
                 realtime(crypto);    
-            }, process.env.TIMEOUT || 60000);
+            }, config.api.timeout * 1000 || 60000);
         });
     }
 

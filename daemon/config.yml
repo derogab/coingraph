@@ -1,0 +1,8 @@
+api:
+  url: https://api.coinmarketcap.com/v1/ticker/
+  timeout: 60
+db:
+  file: db.json
+cryptocurrencies:
+  - bitcoin
+  - ethereum
