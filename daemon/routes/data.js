@@ -25,7 +25,7 @@ module.exports = function(db, config) {
      * 
     */
     function realtime(crypto) {
-        axios.get('https://api.coinmarketcap.com/v1/ticker/' + crypto, {
+        axios.get(config.api.url + crypto, {
             params: {
                 
             }

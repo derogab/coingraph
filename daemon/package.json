@@ -8,5 +8,8 @@
     "fs": "^0.0.1-security",
     "lowdb": "^1.0.0",
     "yaml": "^1.7.2"
+  },
+  "scripts": {
+    "start": "node app.js"
   }
 }
