@@ -32,9 +32,11 @@ module.exports = function(db, io, config) {
         })
         .then(function (response) {
 
-            var data = response.data[0];
+            var data = response.data[0];           
+
+            // save on db
             var handler = db.get('cryptocurrencies').find({'id': crypto});
-            
+
             handler.assign({id: data.id}).write();
             handler.assign({name: data.name}).write();
             handler.assign({symbol: data.symbol}).write();
@@ -46,6 +48,19 @@ module.exports = function(db, io, config) {
                 "last_updated": parseInt(data.last_updated)
             });
             db.write();
+
+            // real time graph
+            realtime_data = {
+                'id': data.id,
+                'name': data.name,
+                'symbol': data.symbol,
+                'price_usd': parseFloat(data.price_usd),
+                'percent_change_1h': parseFloat(data.percent_change_1h),
+                'percent_change_24h': parseFloat(data.percent_change_24h),
+                'percent_change_7d': parseFloat(data.percent_change_7d),
+                'last_updated': parseInt(data.last_updated)
+            };
+            io.emit('realtime-data', realtime_data);
 
         })
         .catch(function (error) {
