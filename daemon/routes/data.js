@@ -43,7 +43,7 @@ module.exports = function(db, config) {
                 "percent_change_1h": parseFloat(data.percent_change_1h),
                 "percent_change_24h": parseFloat(data.percent_change_24h),
                 "percent_change_7d": parseFloat(data.percent_change_7d),
-                "last_updated": data.last_updated
+                "last_updated": parseInt(data.last_updated)
             });
             db.write();
 
