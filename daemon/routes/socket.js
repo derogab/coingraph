@@ -1,7 +1,6 @@
-module.exports = function(db, config) {
+module.exports = function(db, io, config) {
 
-    const io = require('socket.io')()
-    const port = config.server.port || 8000
+    
 
     function fix(cryptocurrency, data){
 
@@ -38,7 +37,5 @@ module.exports = function(db, config) {
         });
 
     });
-    io.listen(port)
-    console.log('Listening on port ', port)
     
 };

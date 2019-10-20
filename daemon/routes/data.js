@@ -1,4 +1,4 @@
-module.exports = function(db, config) {
+module.exports = function(db, io, config) {
     
     const axios = require('axios');
 
