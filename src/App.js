@@ -6,7 +6,7 @@ import './App.css'
 
 function App({socket}) {
   return (
-    <CoinsContainer />
+    <CoinsContainer socket={socket} />
   );
 }
 App.propTypes = {

@@ -1,5 +1,4 @@
 import React, {Component, Fragment} from 'react'
-import axios from 'axios'
 
 import Ethereum from '../../components/Ethereum'
 import Bitcoin from '../../components/Bitcoin'
@@ -9,33 +8,86 @@ export default class CoinsContainer extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: null,
+            data: {
+                'btc_data': {},
+                'btc_graph': [],
+                'eth_data': {},
+                'eth_graph': []
+            },
             isFetchError: false
         }
         this.isUnmounting = false
     }
 
     componentDidMount() {
-        axios.get('/coins-data/')
-            .then(response => {
-                if(this.isUnmounting) {
-                    return
+
+        var io = this.props.socket;
+        var {data, isFetchError} = this.state
+
+        io.on('historical-data', (d) => {
+
+            if(d.id === 'bitcoin'){
+                data.btc_graph = d.graph
+                data.btc_data = {
+                    'data1': ''+d.price_usd,
+                    'data2': ''+d.percent_change_1h,
+                    'data3': ''+d.percent_change_24h,
+                    'data4': ''+d.percent_change_7d
                 }
-                const {data} = response
-                this.setState({
-                    data,
-                    isFetchError: false
-                })
-            })
-            .catch(error =>{
-                if(this.isUnmounting) {
-                    return
+            }
+            else if(d.id === 'ethereum'){
+                data.eth_graph = d.graph
+                data.eth_data = {
+                    'data1': ''+d.price_usd,
+                    'data2': ''+d.percent_change_1h,
+                    'data3': ''+d.percent_change_24h,
+                    'data4': ''+d.percent_change_7d
                 }
-                this.setState({
-                    data: null,
-                    isFetchError: true
-                }, () => console.log(error.message))
+            }
+    
+            if(this.isUnmounting) {
+                return
+            }
+
+            this.setState({
+                data,
+                isFetchError: false
             })
+
+        })
+
+        io.on('realtime-data', (d) => {
+
+            if(d.id === 'bitcoin'){
+                data.btc_graph.push(d.graph);
+                data.btc_data = {
+                    'data1': ''+d.price_usd,
+                    'data2': ''+d.percent_change_1h,
+                    'data3': ''+d.percent_change_24h,
+                    'data4': ''+d.percent_change_7d
+                }
+            }
+            else if(d.id === 'ethereum'){
+                data.eth_graph.push(d.graph);
+                data.eth_data = {
+                    'data1': ''+d.price_usd,
+                    'data2': ''+d.percent_change_1h,
+                    'data3': ''+d.percent_change_24h,
+                    'data4': ''+d.percent_change_7d
+                }
+            }
+
+            if(this.isUnmounting) {
+                return
+            }
+
+            this.setState({
+                data,
+                isFetchError: false
+            })           
+
+        })
+
     }
     componentWillUnmount(){
         this.isUnmounting = true
