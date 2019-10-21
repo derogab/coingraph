@@ -119,7 +119,7 @@ describe('CoinContainer', () => {
         expect(afterBitcoinElement.prop('dataset')).toEqual(new_btc_data)
         done()
     })
-    it('renders loading if fetch has not yet been completed', () => {
+    it('renders loading if no data has been received', () => {
         const element = shallow(<CoinContainer {...props} />)
         expect(element.state().coinsData).toEqual({})
         expect(element.text()).toEqual('Loading...')
