@@ -1,109 +1,77 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
+import get from 'lodash.get'
+import PropTypes from 'prop-types'
 
-import Ethereum from '../../components/Ethereum'
-import Bitcoin from '../../components/Bitcoin'
+import Coin from '../../components/Coin'
 
 export default class CoinsContainer extends Component {
 
+    static propTypes = {
+        socket: PropTypes.shape({
+            on: PropTypes.func.isRequired
+        }).isRequired
+    }
     constructor(props) {
         super(props)
         this.state = {
-            data: {
-                'btc_data': {},
-                'btc_graph': [],
-                'eth_data': {},
-                'eth_graph': []
-            },
-            isFetchError: false
+            coinsData: {}
         }
         this.isUnmounting = false
     }
 
     componentDidMount() {
-
-        var io = this.props.socket;
-        var {data, isFetchError} = this.state
-
-        io.on('historical-data', (d) => {
-
-            if(d.id === 'bitcoin'){
-                data.btc_graph = d.graph
-                data.btc_data = {
-                    'data1': ''+d.price_usd,
-                    'data2': ''+d.percent_change_1h,
-                    'data3': ''+d.percent_change_24h,
-                    'data4': ''+d.percent_change_7d
-                }
-            }
-            else if(d.id === 'ethereum'){
-                data.eth_graph = d.graph
-                data.eth_data = {
-                    'data1': ''+d.price_usd,
-                    'data2': ''+d.percent_change_1h,
-                    'data3': ''+d.percent_change_24h,
-                    'data4': ''+d.percent_change_7d
-                }
-            }
-    
-            if(this.isUnmounting) {
-                return
-            }
-
-            this.setState({
-                data,
-                isFetchError: false
-            })
-
-        })
-
-        io.on('realtime-data', (d) => {
-
-            if(d.id === 'bitcoin'){
-                data.btc_graph.push(d.graph);
-                data.btc_data = {
-                    'data1': ''+d.price_usd,
-                    'data2': ''+d.percent_change_1h,
-                    'data3': ''+d.percent_change_24h,
-                    'data4': ''+d.percent_change_7d
-                }
-            }
-            else if(d.id === 'ethereum'){
-                data.eth_graph.push(d.graph);
-                data.eth_data = {
-                    'data1': ''+d.price_usd,
-                    'data2': ''+d.percent_change_1h,
-                    'data3': ''+d.percent_change_24h,
-                    'data4': ''+d.percent_change_7d
-                }
-            }
-
-            if(this.isUnmounting) {
-                return
-            }
-
-            this.setState({
-                data,
-                isFetchError: false
-            })           
-
-        })
-
+        const io = this.props.socket;
+        
+        io.on('historical-data', this.onNewData)
+        io.on('realtime-data', this.onNewData)
     }
+
     componentWillUnmount(){
         this.isUnmounting = true
     }
+
+    onNewData = (value) => {
+        console.log('Received', value)
+        const {coinsData} = this.state
+        const newData = {
+            graph: get(coinsData, [value.id, 'graph'], []).concat(value.graph),
+            data: {
+                'data1': ''+value.price_usd,
+                'data2': ''+value.percent_change_1h,
+                'data4': ''+value.percent_change_7d,
+                'data3': ''+value.percent_change_24h,
+            }
+        }
+        if(this.isUnmounting) {
+            return
+        }
+
+        this.setState({
+            coinsData: {
+                ...coinsData,
+                [value.id] : newData
+            }
+        })   
+    }
+
     render() {
-        const {data, isFetchError} = this.state
+        const {coinsData} = this.state
+        const dataKeys = Object.keys(coinsData)
 
-        if(isFetchError) return 'Error fetching data...'
-        if(!data) return 'Loading...'
+        if (dataKeys.length === 0) return 'Loading...'
 
-        const {btc_graph, btc_data, eth_graph, eth_data} = data
         return (
-            <Fragment>
-                <Bitcoin datagraph={btc_graph} dataset={btc_data}/>
-                <Ethereum datagraph={eth_graph} dataset={eth_data}/>
-            </Fragment>
-        )
+            dataKeys.map(key => {
+                const {data, graph} = coinsData[key]
+                return (
+                    <Coin
+                        key={`coin-${key}`}
+                        prefix={key}
+                        datagraph={graph}
+                        dataset={data}
+                    />
+                )
+            })
+        )    
     }
 }
