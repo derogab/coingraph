@@ -1,10 +1,8 @@
 import React from 'react'
-import moxios from 'moxios'
 import {shallow} from 'enzyme'
 
 import CoinContainer from './'
-import Bitcoin from '../../components/Bitcoin';
-import Ethereum from '../../components/Ethereum';
+import Coin from '../../components/Coin';
 
 const btc_data = {
     'data1': 'btc_data1',
@@ -30,60 +28,100 @@ const eth_graph = [
     {"name": "eth_Coingraph", "uv": 50, "pv": 50, "amt": 50}
   ];
 describe('CoinContainer', () => {
+    const props = {
+        socket: {
+            on: jest.fn()
+        }
+    }
     beforeEach(() => {
-        moxios.install()
+        props.socket.on.mockClear()
     })
-    afterEach(() => {
-        moxios.uninstall()
-    })
-    it('passes correct data to Ethereum and Bitcoin', (done) => {
-        const element = shallow(<CoinContainer />)
-        moxios.wait(() => {
-            const request = moxios.requests.mostRecent()
-            const response = {
-                btc_data,
-                btc_graph,
-                eth_data,
-                eth_graph
-            }
-            expect(request.url).toEqual('/coins-data/')
-            request.respondWith({
-                status: 200,
-                response
-            }).then(() => {
-                const bitcoinElement = element.find(Bitcoin)
-                expect(bitcoinElement).toHaveLength(1)
-                expect(bitcoinElement.prop('datagraph')).toEqual(btc_graph)
-                expect(bitcoinElement.prop('dataset')).toEqual(btc_data)
+    it('renders correct coins on `historical-data` and `realtime-data`', () => {
+        const callbacks = {}
+        props.socket.on.mockImplementation((key, fn) => {
+            callbacks[key] = fn
+        })
+        const element = shallow(<CoinContainer {...props} />)
+        expect(Object.keys(callbacks)).toEqual(['historical-data', 'realtime-data'])
+        callbacks['historical-data']({
+            id: 'bitcoin',
+            price_usd: btc_data.data1,
+            percent_change_1h: btc_data.data2,
+            percent_change_7d: btc_data.data4,
+            percent_change_24h: btc_data.data3,
+            graph: btc_graph
+        })
+        callbacks['realtime-data']({
+            id: 'ethereum',
+            price_usd: eth_data.data1,
+            percent_change_1h: eth_data.data2,
+            percent_change_7d: eth_data.data4,
+            percent_change_24h: eth_data.data3,
+            graph: eth_graph
+        })
 
-                const ethereumElement = element.find(Ethereum)
-                expect(ethereumElement).toHaveLength(1)
-                expect(ethereumElement.prop('datagraph')).toEqual(eth_graph)
-                expect(ethereumElement.prop('dataset')).toEqual(eth_data)
+        const coinsFound = element.find(Coin)
+        const bitcoinElement = coinsFound.at(0)
+        expect(bitcoinElement).toHaveLength(1)
+        expect(bitcoinElement.prop('datagraph')).toEqual(btc_graph)
+        expect(bitcoinElement.prop('dataset')).toEqual(btc_data)
 
-                done()
-            })
-        })
+        const ethereumElement = coinsFound.at(1)
+        expect(ethereumElement).toHaveLength(1)
+        expect(ethereumElement.prop('datagraph')).toEqual(eth_graph)
+        expect(ethereumElement.prop('dataset')).toEqual(eth_data)
     })
-    it('renders Error if fetch fails', (done) => {
-        const element = shallow(<CoinContainer />)
-        moxios.wait(() => {
-            const request = moxios.requests.mostRecent()
-            request.respondWith({
-                status: 401
-            }).then(() => {
-                expect(element.state().isFetchError).toBe(true)
-                expect(element.text()).toEqual('Error fetching data...')
-                done()
-            })
+    it('concat graph when receives new data with same id', (done) => {
+        const callbacks = {}
+        props.socket.on.mockImplementation((key, fn) => {
+            callbacks[key] = fn
         })
+        const element = shallow(<CoinContainer {...props} />)
+        expect(Object.keys(callbacks)).toEqual(['historical-data', 'realtime-data'])
+        callbacks['historical-data']({
+            id: 'bitcoin',
+            price_usd: btc_data.data1,
+            percent_change_1h: btc_data.data2,
+            percent_change_7d: btc_data.data4,
+            percent_change_24h: btc_data.data3,
+            graph: btc_graph
+        })
+        const new_btc_data = {
+            'data1': 'new_btc_data1',
+            'data2': 'new_btc_data2',
+            'data3': 'new_btc_data3',
+            'data4': 'new_btc_data4'
+        }
+        const new_btc_graph = [
+            {"name": "btc_Coingraph1", "uv": 1, "pv": 1, "amt": 1},
+            {"name": "btc_Coingraph1", "uv": 101, "pv": 101, "amt": 101},
+            {"name": "btc_Coingraph1", "uv": 81, "pv": 81, "amt": 81}
+          ];
+        const coinsFound = element.find(Coin)
+        expect(coinsFound).toHaveLength(1)
+        const beforeBitcoinElement = coinsFound.at(0)
+        expect(beforeBitcoinElement).toHaveLength(1)
+        expect(beforeBitcoinElement.prop('datagraph')).toEqual(btc_graph)
+        expect(beforeBitcoinElement.prop('dataset')).toEqual(btc_data)
+        callbacks['realtime-data']({
+            id: 'bitcoin',
+            price_usd: new_btc_data.data1,
+            percent_change_1h: new_btc_data.data2,
+            percent_change_7d: new_btc_data.data4,
+            percent_change_24h: new_btc_data.data3,
+            graph: new_btc_graph
+        })
+        const afterCoinsFound = element.find(Coin)
+        expect(afterCoinsFound).toHaveLength(1)
+        const afterBitcoinElement = afterCoinsFound.at(0)
+        expect(afterBitcoinElement).toHaveLength(1)
+        expect(afterBitcoinElement.prop('datagraph')).toEqual(btc_graph.concat(new_btc_graph))
+        expect(afterBitcoinElement.prop('dataset')).toEqual(new_btc_data)
+        done()
     })
-    it('renders loading if fetch has not yet been completed', (done) => {
-        const element = shallow(<CoinContainer />)
-        moxios.wait(() => {
-            expect(element.state().data).toBeNull()
-            expect(element.text()).toEqual('Loading...')
-            done()
-        })
+    it('renders loading if no data has been received', () => {
+        const element = shallow(<CoinContainer {...props} />)
+        expect(element.state().coinsData).toEqual({})
+        expect(element.text()).toEqual('Loading...')
     })
 })
