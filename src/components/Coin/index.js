@@ -8,7 +8,7 @@ import {
 import ColumnData from './ColumnData'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './index.css'
 
 function Coin({datagraph, dataset, prefix}) {
 
