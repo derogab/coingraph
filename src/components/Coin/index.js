@@ -21,8 +21,8 @@ function Coin({datagraph, dataset, prefix}) {
       <Row>
         <Col className="with-border set-height">
           <ResponsiveContainer>
-            <LineChart margin={{ top: 5, right: 0, left: 0, bottom: 5 }} data={datagraph}>
-              <Line type='monotone' dataKey='pv' stroke='#8884d8' strokeWidth={2} />
+            <LineChart margin={{ top: 0, right: 0, left: 0, bottom: 0 }} data={datagraph}>
+              <Line type='monotone' dataKey='pv' stroke='#8884d8' strokeWidth={2} dot={false} isAnimationActive={false} />
             </LineChart>
           </ResponsiveContainer>
         </Col>
