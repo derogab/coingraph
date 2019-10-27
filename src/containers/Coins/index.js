@@ -1,8 +1,12 @@
 import React, {Component} from 'react'
 import get from 'lodash.get'
 import PropTypes from 'prop-types'
+import Spinner from 'react-bootstrap/Spinner'
 
 import Coin from '../../components/Coin'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css'
 
 export default class CoinsContainer extends Component {
 
@@ -58,7 +62,12 @@ export default class CoinsContainer extends Component {
         const {coinsData} = this.state
         const dataKeys = Object.keys(coinsData)
 
-        if (dataKeys.length === 0) return 'Loading...'
+        if (dataKeys.length === 0) 
+            return (
+                <Spinner animation="border" role="status" className="loading">
+                    <span className="sr-only">Loading...</span>
+                </Spinner>
+            )
 
         return (
             dataKeys.map(key => {
