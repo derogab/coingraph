@@ -2,7 +2,7 @@ import React from 'react'
 import {shallow} from 'enzyme'
 
 import Coin from './'
-import ColumnData from './ColumnData';
+import { CashData, PercentageData } from './ColumnData';
 
 describe('Coin', () => {
     const props = {
@@ -13,17 +13,30 @@ describe('Coin', () => {
             data4: 'foo4'
         },
         datagraph:[
-            {"name": "Coingraph", "uv": 0, "pv": 0, "amt": 0}
+            {"name": "Coingraph", "price": 0, "time": 0}
         ],
         prefix: 'my-prefix'
     }
 
-    it('renders 4 ColumnData with correct data', () => {
+    it('renders 1 CashData with correct data', () => {
         const element = shallow(
             <Coin {...props} />
         )
-        const columnsData = element.find(ColumnData)
-        expect(columnsData).toHaveLength(4)
+        const columnsData = element.find(CashData)
+        expect(columnsData).toHaveLength(1)
+        const expectedData = Object.keys(props.dataset)
+        columnsData.forEach((col, index) => {
+            const key = expectedData[index]
+            expect(col.prop('data')).toEqual(props.dataset[key])
+        })
+    })
+
+    it('renders 3 PercentageData with correct data', () => {
+        const element = shallow(
+            <Coin {...props} />
+        )
+        const columnsData = element.find(PercentageData)
+        expect(columnsData).toHaveLength(3)
         const expectedData = Object.keys(props.dataset)
         columnsData.forEach((col, index) => {
             const key = expectedData[index]
