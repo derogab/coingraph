@@ -40,10 +40,10 @@ export default class CoinsContainer extends Component {
         const newData = {
             graph: get(coinsData, [value.id, 'graph'], []).concat(value.graph),
             data: {
-                'data1': ''+value.price_usd,
-                'data2': ''+value.percent_change_1h,
-                'data4': ''+value.percent_change_7d,
-                'data3': ''+value.percent_change_24h,
+                'data1': '$'+(value.price_usd.toFixed(2)),
+                'data2': ''+(value.percent_change_1h.toFixed(2))+'%',
+                'data4': ''+(value.percent_change_7d.toFixed(2))+'%',
+                'data3': ''+(value.percent_change_24h.toFixed(2))+'%',
             }
         }
         if(this.isUnmounting) {
