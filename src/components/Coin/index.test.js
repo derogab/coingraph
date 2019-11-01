@@ -22,13 +22,9 @@ describe('Coin', () => {
         const element = shallow(
             <Coin {...props} />
         )
-        const columnsData = element.find(CashData)
-        expect(columnsData).toHaveLength(1)
-        const expectedData = Object.keys(props.dataset)
-        columnsData.forEach((col, index) => {
-            const key = expectedData[index]
-            expect(col.prop('data')).toEqual(props.dataset[key])
-        })
+        const cashData = element.find(CashData)
+        expect(cashData).toHaveLength(1)
+        expect(cashData.prop('data')).toEqual(props.dataset.data1)
     })
 
     it('renders 3 PercentageData with correct data', () => {
@@ -37,10 +33,10 @@ describe('Coin', () => {
         )
         const columnsData = element.find(PercentageData)
         expect(columnsData).toHaveLength(3)
-        const expectedData = Object.keys(props.dataset)
+        const {data2, data3, data4} = props.dataset
+        const expectedData = [data2, data3, data4]
         columnsData.forEach((col, index) => {
-            const key = expectedData[index]
-            expect(col.prop('data')).toEqual(props.dataset[key])
+            expect(col.prop('data')).toEqual(expectedData[index])
         })
     })
 
