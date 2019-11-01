@@ -24,7 +24,7 @@ function Coin({datagraph, dataset, prefix}) {
             <LineChart margin={{ top: 0, right: 0, left: 0, bottom: 0 }} data={datagraph}>
                 <XAxis dataKey="time" hide={true}/>
                 <YAxis hide={true} domain={['auto', 'auto']}/>
-              <Line type='monotone' dataKey='price' stroke='#8884d8' strokeWidth={2} dot={false} isAnimationActive={false} />
+              <Line type='monotone' dataKey='price' stroke='#ecf0f1' strokeWidth={2} dot={false} isAnimationActive={false} />
             </LineChart>
           </ResponsiveContainer>
         </Col>
