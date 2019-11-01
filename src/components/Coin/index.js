@@ -5,7 +5,7 @@ import {
   LineChart, Line, ResponsiveContainer, XAxis, YAxis
 } from 'recharts';
 
-import ColumnData from './ColumnData'
+import { CashData, PercentageData } from './ColumnData'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
@@ -19,7 +19,7 @@ function Coin({datagraph, dataset, prefix}) {
       <div className={`${prefix}-body`}>
 
       <Row>
-        <Col className="with-border set-height">
+        <Col className="box-graph set-height">
           <ResponsiveContainer>
             <LineChart margin={{ top: 0, right: 0, left: 0, bottom: 0 }} data={datagraph}>
                 <XAxis dataKey="time" hide={true}/>
@@ -30,12 +30,12 @@ function Coin({datagraph, dataset, prefix}) {
         </Col>
         <Col>
           <Row>
-              <ColumnData data={dataset.data1} />
-              <ColumnData data={dataset.data2} />
+              <CashData data={dataset.data1} />
+              <PercentageData data={dataset.data2} />
           </Row>
           <Row>
-            <ColumnData data={dataset.data3} />
-            <ColumnData data={dataset.data4} />
+            <PercentageData data={dataset.data3} />
+            <PercentageData data={dataset.data4} />
           </Row>
         </Col>
       </Row>       

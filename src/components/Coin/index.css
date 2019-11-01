@@ -1,8 +1,13 @@
-.with-border {
-    border: 1px solid #8884d8;
+.box-graph{
     margin: 5px;
+    border: 1px solid #2c3e50;
+    padding: 25px 10px 25px 10px;
+    border-radius: 3px;
 }
 
-.value-space{
+.box-data{
+    margin: 5px;
+    border: 1px solid #2c3e50;
     padding: 25px 10px 25px 10px;
+    border-radius: 3px;
 }
