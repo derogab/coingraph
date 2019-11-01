@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types'
 import {
-  LineChart, Line, ResponsiveContainer
+  LineChart, Line, ResponsiveContainer, XAxis, YAxis
 } from 'recharts';
 
 import ColumnData from './ColumnData'
@@ -22,7 +22,9 @@ function Coin({datagraph, dataset, prefix}) {
         <Col className="with-border set-height">
           <ResponsiveContainer>
             <LineChart margin={{ top: 0, right: 0, left: 0, bottom: 0 }} data={datagraph}>
-              <Line type='monotone' dataKey='pv' stroke='#8884d8' strokeWidth={2} dot={false} isAnimationActive={false} />
+                <XAxis dataKey="time" hide={true}/>
+                <YAxis hide={true} domain={['auto', 'auto']}/>
+              <Line type='monotone' dataKey='price' stroke='#8884d8' strokeWidth={2} dot={false} isAnimationActive={false} />
             </LineChart>
           </ResponsiveContainer>
         </Col>

@@ -1,7 +1,5 @@
 module.exports = function(db, io, config) {
 
-    
-
     function fix(cryptocurrency, data){
 
         formatted_data = {
@@ -18,8 +16,8 @@ module.exports = function(db, io, config) {
         data.forEach(element => {
             formatted_data.graph.push({
                 'name': '', 
-                'pv': element.price_usd, 
-                'amt': element.last_updated
+                'price': element.price_usd, 
+                'time': element.last_updated
             });
         });
 

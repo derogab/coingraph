@@ -2,6 +2,21 @@ module.exports = function(db, io, config) {
     
     const axios = require('axios');
 
+    function fix_graph(data){
+        
+        var formatted_data = [];
+
+        data.forEach(element => {
+            formatted_data.push({
+                'name': '', 
+                'price': element.price_usd, 
+                'time': element.last_updated
+            });
+        });
+
+        return formatted_data;
+    }
+
     /** 
      * Cryptocurrencies 
      * 
@@ -50,7 +65,7 @@ module.exports = function(db, io, config) {
             db.write();
 
             // real time graph
-            realtime_data = {
+            var realtime_data = {
                 'id': data.id,
                 'name': data.name,
                 'symbol': data.symbol,
@@ -58,7 +73,12 @@ module.exports = function(db, io, config) {
                 'percent_change_1h': parseFloat(data.percent_change_1h),
                 'percent_change_24h': parseFloat(data.percent_change_24h),
                 'percent_change_7d': parseFloat(data.percent_change_7d),
-                'last_updated': parseInt(data.last_updated)
+                'last_updated': parseInt(data.last_updated),
+                'graph': { // new data
+                    'name': '', 
+                    'price': parseFloat(data.price_usd), 
+                    'time': parseInt(data.last_updated)
+                }
             };
             io.emit('realtime-data', realtime_data);
 
