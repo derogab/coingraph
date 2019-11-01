@@ -3,18 +3,19 @@ import {Col} from 'react-bootstrap'
 
 import './index.css'
 
-export function CashData({data}) {
+export function CashData({data, value}) {
 
   data = '$' + data.toFixed(2);
 
   return (
     <Col className="box-data nohill">
+      <h6>{value}</h6>
       <h1>{data}</h1>
     </Col>
   )
 }
 
-export function PercentageData({data}) {
+export function PercentageData({data, value}) {
 
   var hill = 'nohill';
   if(data > 0) hill = 'uphill';
@@ -24,6 +25,7 @@ export function PercentageData({data}) {
 
   return (
     <Col  className={"box-data " + hill}>
+      <h6>{value}</h6>
       <h1>{data}</h1>
     </Col>
   )

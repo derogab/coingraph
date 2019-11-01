@@ -30,12 +30,12 @@ function Coin({datagraph, dataset, prefix}) {
         </Col>
         <Col>
           <Row>
-              <CashData data={dataset.data1} />
-              <PercentageData data={dataset.data2} />
+              <CashData data={dataset.data1} value={prefix}/>
+              <PercentageData data={dataset.data2} value="change last 1h" />
           </Row>
           <Row>
-            <PercentageData data={dataset.data3} />
-            <PercentageData data={dataset.data4} />
+            <PercentageData data={dataset.data3} value="change last 24h" />
+            <PercentageData data={dataset.data4} value="change last 7d" />
           </Row>
         </Col>
       </Row>       

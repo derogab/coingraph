@@ -22,3 +22,10 @@ h1{
   margin: auto;
   padding: auto;
 }
+
+h6{
+  text-align: center;
+  font-size: 13px !important;
+  text-transform: uppercase;
+  color: #bdc3c7;
+}
