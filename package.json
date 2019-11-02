@@ -16,12 +16,12 @@
     "socket.io": "^2.3.0"
   },
   "scripts": {
-    "dev:dev-server": "react-scripts start",
-    "dev": "npm-run-all -p dev:*",
+    "daemon": "cd daemon && yarn start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "all": "npm-run-all -p daemon start"
   },
   "eslintConfig": {
     "extends": "react-app"
