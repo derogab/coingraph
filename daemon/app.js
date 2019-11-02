@@ -9,6 +9,7 @@ const YAML = require('yaml');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const io = require('socket.io')()
+const express = require('express')
 
 /**
  * Init
@@ -25,9 +26,13 @@ const port = config.server.port || 8000
 io.listen(port)
 console.log('Listening on port ', port)
 
+const app = express()
+app.listen(config.api.port || 3000)
+
 /**
  * Router
  *
  */
-require(__dirname + '/routes/data')(db, io, config);
-require(__dirname + '/routes/socket')(db, io, config);
+require(__dirname + '/routes/data')(db, io, app, config);
+require(__dirname + '/routes/socket')(db, io, app, config);
+require(__dirname + '/routes/api')(db, io, app, config);

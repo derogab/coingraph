@@ -1,8 +1,10 @@
-api:
+resource:
   url: https://api.coinmarketcap.com/v1/ticker/
   timeout: 60
 db:
   file: db.json
+api:
+  port: 3000
 server:
   port: 8000
 cryptocurrencies:

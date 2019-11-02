@@ -1,4 +1,4 @@
-module.exports = function(db, io, config) {
+module.exports = function(db, io, app, config) {
 
     function fix(cryptocurrency, data){
 

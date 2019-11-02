@@ -1,4 +1,4 @@
-module.exports = function(db, io, config) {
+module.exports = function(db, io, app, config) {
     
     const axios = require('axios');
 
@@ -40,7 +40,7 @@ module.exports = function(db, io, config) {
      * 
     */
     function realtime(crypto) {
-        axios.get(config.api.url + crypto, {
+        axios.get(config.resource.url + crypto, {
             params: {
                 
             }
@@ -90,7 +90,7 @@ module.exports = function(db, io, config) {
             // always executed
             setTimeout(function(){ 
                 realtime(crypto);    
-            }, config.api.timeout * 1000 || 60000);
+            }, config.resource.timeout * 1000 || 60000);
         });
     }
 
