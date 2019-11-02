@@ -49,16 +49,15 @@ function Coin({datagraph, dataset, prefix}) {
 Coin.propTypes = {
   datagraph: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
-    uv: PropTypes.number,
-    pv: PropTypes.number,
-    amt: PropTypes.number
+    price: PropTypes.number,
+    time: PropTypes.number
   })),
   prefix: PropTypes.string,
   dataset: PropTypes.shape({
-    data1: PropTypes.string,
-    data2: PropTypes.string,
-    data3: PropTypes.string,
-    data4: PropTypes.string
+    data1: PropTypes.number,
+    data2: PropTypes.number,
+    data3: PropTypes.number,
+    data4: PropTypes.number
   })
 }
 Coin.defaultProps = {
