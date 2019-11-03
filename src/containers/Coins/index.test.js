@@ -11,21 +11,21 @@ const btc_data = {
     'data4': 'btc_data4'
 }
 const btc_graph = [
-    {"name": "btc_Coingraph", "uv": 0, "pv": 0, "amt": 0},
-    {"name": "btc_Coingraph", "uv": 100, "pv": 100, "amt": 100},
-    {"name": "btc_Coingraph", "uv": 80, "pv": 80, "amt": 80}
+    {"name": "btc_Coingraph", "price": 0, "time": 0},
+    {"name": "btc_Coingraph", "price": 100, "time": 100},
+    {"name": "btc_Coingraph", "price": 80, "time": 80}
   ];
   
 const eth_data = {
-    'data1': 'eth_data1',
-    'data2': 'eth_data2',
-    'data3': 'eth_data3',
-    'data4': 'eth_data4'
+    'data1': 0.0,
+    'data2': 0.0,
+    'data3': 0.0,
+    'data4': 0.0,
 }
 const eth_graph = [
-    {"name": "eth_Coingraph", "uv": 0, "pv": 0, "amt": 0},
-    {"name": "eth_Coingraph", "uv": 100, "pv": 100, "amt": 100},
-    {"name": "eth_Coingraph", "uv": 50, "pv": 50, "amt": 50}
+    {"name": "eth_Coingraph", "price": 0, "time": 0},
+    {"name": "eth_Coingraph", "price": 100, "time": 100},
+    {"name": "eth_Coingraph", "price": 50, "time": 50}
   ];
 describe('CoinContainer', () => {
     const props = {
@@ -87,15 +87,15 @@ describe('CoinContainer', () => {
             graph: btc_graph
         })
         const new_btc_data = {
-            'data1': 'new_btc_data1',
-            'data2': 'new_btc_data2',
-            'data3': 'new_btc_data3',
-            'data4': 'new_btc_data4'
+            'data1': 0.0,
+            'data2': 0.0,
+            'data3': 0.0,
+            'data4': 0.0
         }
         const new_btc_graph = [
-            {"name": "btc_Coingraph1", "uv": 1, "pv": 1, "amt": 1},
-            {"name": "btc_Coingraph1", "uv": 101, "pv": 101, "amt": 101},
-            {"name": "btc_Coingraph1", "uv": 81, "pv": 81, "amt": 81}
+            {"name": "btc_Coingraph1", "price": 1, "time": 1},
+            {"name": "btc_Coingraph1", "price": 101, "time": 101},
+            {"name": "btc_Coingraph1", "price": 81, "time": 81}
           ];
         const coinsFound = element.find(Coin)
         expect(coinsFound).toHaveLength(1)
