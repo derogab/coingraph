@@ -27,7 +27,7 @@ io.listen(port)
 console.log('Listening on port ', port)
 
 const app = express()
-app.listen(config.api.port || 3000)
+app.listen(config.api.port || 8080)
 
 /**
  * Router

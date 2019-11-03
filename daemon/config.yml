@@ -4,7 +4,7 @@ resource:
 db:
   file: db.json
 api:
-  port: 3000
+  port: 8080
 cryptocurrencies:
   - bitcoin
   - ethereum
