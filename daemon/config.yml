@@ -5,8 +5,6 @@ db:
   file: db.json
 api:
   port: 3000
-server:
-  port: 8000
 cryptocurrencies:
   - bitcoin
   - ethereum

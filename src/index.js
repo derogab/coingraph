@@ -6,7 +6,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const SOCKET_PORT = 8000
+const SOCKET_PORT = 8081
 const socketIo = io(`http://localhost:${SOCKET_PORT}`)
 
 ReactDOM.render(<App socket={socketIo} />, document.getElementById('root'));

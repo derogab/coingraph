@@ -22,7 +22,7 @@ const adapter = new FileSync(config.db.file || 'db.json');
 const db = low(adapter);
 db.defaults({ status: {}, cryptocurrencies: [] }).write();
 
-const port = config.server.port || 8000
+const port = 8081
 io.listen(port)
 console.log('Listening on port ', port)
 
