@@ -22,12 +22,14 @@ const adapter = new FileSync(config.db.file || 'db.json');
 const db = low(adapter);
 db.defaults({ status: {}, cryptocurrencies: [] }).write();
 
-const port = 8081
-io.listen(port)
-console.log('Listening on port ', port)
+const io_port = 8081
+io.listen(io_port)
+console.log('IO listening on port ', io_port)
 
 const app = express()
-app.listen(config.api.port || 8080)
+const api_port = config.api.port || 8080
+app.listen(api_port)
+console.log('API listening on port ', api_port)
 
 /**
  * Router
