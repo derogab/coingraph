@@ -24,18 +24,6 @@ module.exports = function(db, io, app, config) {
     cryptocurrencies = config.cryptocurrencies;
 
     /** 
-     * Historical Data
-     * 
-    */
-    function init(crypto) {
-        
-        // ... something else ...
-
-        realtime(crypto);
-
-    }
-
-    /** 
      * Real Time Data
      * 
     */
@@ -111,8 +99,7 @@ module.exports = function(db, io, app, config) {
 
         }
           
-        init(cryptocurrency);
+        realtime(cryptocurrency);
     });
-
 
 };
