@@ -29,9 +29,14 @@ module.exports = function(db, io, app, config) {
 
         db.get('cryptocurrencies').value().forEach(cryptocurrency => {
 
-            var historical_data = db.get('cryptocurrencies').find(cryptocurrency).value().data;
-            
-            io.emit('historical-data', fix(cryptocurrency, historical_data));
+            if(config.cryptocurrencies.includes(cryptocurrency.id)) {
+
+                var historical_data = db.get('cryptocurrencies').find(cryptocurrency).value().data;
+
+                io.emit('historical-data', fix(cryptocurrency, historical_data));
+
+            }
+
         });
 
     });
