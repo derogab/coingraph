@@ -35,7 +35,6 @@ export default class CoinsContainer extends Component {
     }
 
     onNewData = (value) => {
-        console.log('Received', value)
 
         const now = new Date(Date.now());
         const one_week_ago = new Date(Date.now());

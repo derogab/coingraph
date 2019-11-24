@@ -7,10 +7,10 @@ import { CashData, PercentageData } from './ColumnData';
 describe('Coin', () => {
     const props = {
         dataset: {
-            data1: 'foo1',
-            data2: 'foo2',
-            data3: 'foo3',
-            data4: 'foo4'
+            data1: 8123.45,
+            data2: 12.2,
+            data3: 1.5,
+            data4: -3.5
         },
         datagraph:[
             {"name": "Coingraph", "price": 0, "time": 0}

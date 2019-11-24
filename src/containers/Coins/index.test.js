@@ -1,14 +1,15 @@
 import React from 'react'
 import {shallow} from 'enzyme'
+import Spinner from 'react-bootstrap/Spinner'
 
 import CoinContainer from './'
 import Coin from '../../components/Coin';
 
 const btc_data = {
-    'data1': 'btc_data1',
-    'data2': 'btc_data2',
-    'data3': 'btc_data3',
-    'data4': 'btc_data4'
+    'data1': 8123.45,
+    'data2': 12.2,
+    'data3': 1.11,
+    'data4': -3.45
 }
 const btc_graph = [
     {"name": "btc_Coingraph", "price": 0, "time": 1},
@@ -17,10 +18,10 @@ const btc_graph = [
   ];
   
 const eth_data = {
-    'data1': 0.0,
-    'data2': 0.0,
-    'data3': 0.0,
-    'data4': 0.0,
+    'data1': 8123.45,
+    'data2': 12.2,
+    'data3': 1.11,
+    'data4': -3.45
 }
 const eth_graph = [
     {"name": "eth_Coingraph", "price": 0, "time": 1},
@@ -91,15 +92,15 @@ describe('CoinContainer', () => {
             graph: btc_graph
         })
         const new_btc_data = {
-            'data1': 0.0,
-            'data2': 0.0,
-            'data3': 0.0,
-            'data4': 0.0
+            'data1': 8123.45,
+            'data2': 12.2,
+            'data3': 1.11,
+            'data4': -3.54
         }
         const new_btc_graph = [
             {"name": "btc_Coingraph1", "price": 1, "time": 1},
-            {"name": "btc_Coingraph1", "price": 101, "time": 101},
-            {"name": "btc_Coingraph1", "price": 81, "time": 81}
+            {"name": "btc_Coingraph1", "price": 81, "time": 81},
+            {"name": "btc_Coingraph1", "price": 101, "time": 101}
           ];
         const coinsFound = element.find(Coin)
         expect(coinsFound).toHaveLength(1)
@@ -126,6 +127,6 @@ describe('CoinContainer', () => {
     it('renders loading if no data has been received', () => {
         const element = shallow(<CoinContainer {...props} />)
         expect(element.state().coinsData).toEqual({})
-        expect(element.text()).toEqual('Loading...')
+        expect(element.find(Spinner)).toHaveLength(1)
     })
 })
