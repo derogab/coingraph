@@ -11,3 +11,9 @@
     padding: 25px 10px 25px 10px;
     border-radius: 3px;
 }
+
+.custom-tooltip{
+    background-color: #ecf0f1;
+    padding: 10px;
+    border-radius: 5px;
+}
