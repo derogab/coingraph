@@ -38,7 +38,7 @@ export default class CoinsContainer extends Component {
         console.log('Received', value)
 
         const now = new Date(Date.now());
-        const one_week_ago = new Date();
+        const one_week_ago = new Date(Date.now());
               one_week_ago.setDate(one_week_ago.getDate() - 7);
 
         const {coinsData} = this.state
@@ -46,7 +46,6 @@ export default class CoinsContainer extends Component {
             graph: (get(coinsData, [value.id, 'graph'], []).concat(value.graph)).filter((element) => {
                 // only one week data show
                 var ttd = new Date(element.time * 1000); // time of this data
-                
                 if(ttd >= one_week_ago && ttd <= now) {
                     return true;
                 }
@@ -63,7 +62,6 @@ export default class CoinsContainer extends Component {
         if(this.isUnmounting) {
             return
         }
-
         this.setState({
             coinsData: {
                 ...coinsData,
