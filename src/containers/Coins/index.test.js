@@ -11,7 +11,7 @@ const btc_data = {
     'data4': 'btc_data4'
 }
 const btc_graph = [
-    {"name": "btc_Coingraph", "price": 0, "time": 0},
+    {"name": "btc_Coingraph", "price": 0, "time": 1},
     {"name": "btc_Coingraph", "price": 100, "time": 100},
     {"name": "btc_Coingraph", "price": 80, "time": 80}
   ];
@@ -23,7 +23,7 @@ const eth_data = {
     'data4': 0.0,
 }
 const eth_graph = [
-    {"name": "eth_Coingraph", "price": 0, "time": 0},
+    {"name": "eth_Coingraph", "price": 0, "time": 1},
     {"name": "eth_Coingraph", "price": 100, "time": 100},
     {"name": "eth_Coingraph", "price": 50, "time": 50}
   ];
@@ -37,6 +37,8 @@ describe('CoinContainer', () => {
         props.socket.on.mockClear()
     })
     it('renders correct coins on `historical-data` and `realtime-data`', () => {
+        const NOW = 1000*1000
+        jest.spyOn(global.Date, 'now').mockImplementation(() => NOW)
         const callbacks = {}
         props.socket.on.mockImplementation((key, fn) => {
             callbacks[key] = fn
@@ -72,6 +74,8 @@ describe('CoinContainer', () => {
         expect(ethereumElement.prop('dataset')).toEqual(eth_data)
     })
     it('concat graph when receives new data with same id', (done) => {
+        const NOW = 1000*1000
+        jest.spyOn(global.Date, 'now').mockImplementation(() => NOW)
         const callbacks = {}
         props.socket.on.mockImplementation((key, fn) => {
             callbacks[key] = fn
