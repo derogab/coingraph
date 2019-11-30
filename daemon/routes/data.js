@@ -2,21 +2,6 @@ module.exports = function(db, io, app, config) {
     
     const axios = require('axios');
 
-    function fix_graph(data){
-        
-        var formatted_data = [];
-
-        data.forEach(element => {
-            formatted_data.push({
-                'name': '', 
-                'price': element.price_usd, 
-                'time': element.last_updated
-            });
-        });
-
-        return formatted_data;
-    }
-
     /** 
      * Cryptocurrencies 
      * 
