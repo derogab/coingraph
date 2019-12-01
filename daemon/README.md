@@ -3,7 +3,7 @@
 A daemon for coingraph who takes care of
 - collecting data from external sources
 - organizing the data in the local database
-- sending historical and live data to the client
+- emitting historical and live data via socket
 - exposing an API
 
 ## Dependencies
