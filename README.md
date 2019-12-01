@@ -24,3 +24,7 @@ If necessary, view the [daemon configurations](./daemon/README.md#configuration)
 yarn run all
 ```
 The previous command starts both the [daemon](./daemon) and the web interface.
+
+
+## License
+_Coingraph_ is made with ♥  by [derogab](https://github.com/derogab) and the [amazing dev team](https://github.com/derogab/coingraph/graphs/contributors). It is released under the MIT license.
