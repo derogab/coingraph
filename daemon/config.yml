@@ -1,6 +1,6 @@
 resource:
   url: https://api.coinmarketcap.com/v1/ticker/
-  timeout: 60
+  timeout: 180
 db:
   file: db.json
 api:
