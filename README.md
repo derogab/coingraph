@@ -16,6 +16,8 @@ Coingraph is a **real-time graph for cryptocurrencies**.
 ```shell
 yarn
 ```
+And don't forget to also install the [daemon dependencies](./daemon/README.md#dependencies)!
+
 ## Configuration
 If necessary, view the [daemon configurations](./daemon/README.md#configuration).
 
