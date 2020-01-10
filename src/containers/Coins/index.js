@@ -54,8 +54,8 @@ export default class CoinsContainer extends Component {
             data: {
                 'data1': value.price_usd,
                 'data2': value.percent_change_1h,
-                'data4': value.percent_change_24h,
-                'data3': value.percent_change_7d,
+                'data3': value.percent_change_24h,
+                'data4': value.percent_change_7d,
             }
         }
         if(this.isUnmounting) {
