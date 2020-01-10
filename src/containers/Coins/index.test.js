@@ -50,16 +50,16 @@ describe('CoinContainer', () => {
             id: 'bitcoin',
             price_usd: btc_data.data1,
             percent_change_1h: btc_data.data2,
-            percent_change_7d: btc_data.data3,
-            percent_change_24h: btc_data.data4,
+            percent_change_24h: btc_data.data3,
+            percent_change_7d: btc_data.data4,
             graph: btc_graph
         })
         callbacks['realtime-data']({
             id: 'ethereum',
             price_usd: eth_data.data1,
             percent_change_1h: eth_data.data2,
-            percent_change_7d: eth_data.data3,
-            percent_change_24h: eth_data.data4,
+            percent_change_24h: eth_data.data3,
+            percent_change_7d: eth_data.data4,
             graph: eth_graph
         })
 
@@ -87,8 +87,8 @@ describe('CoinContainer', () => {
             id: 'bitcoin',
             price_usd: btc_data.data1,
             percent_change_1h: btc_data.data2,
-            percent_change_7d: btc_data.data3,
-            percent_change_24h: btc_data.data4,
+            percent_change_24h: btc_data.data3,
+            percent_change_7d: btc_data.data4,
             graph: btc_graph
         })
         const new_btc_data = {
@@ -112,8 +112,8 @@ describe('CoinContainer', () => {
             id: 'bitcoin',
             price_usd: new_btc_data.data1,
             percent_change_1h: new_btc_data.data2,
-            percent_change_7d: new_btc_data.data3,
-            percent_change_24h: new_btc_data.data4,
+            percent_change_24h: new_btc_data.data3,
+            percent_change_7d: new_btc_data.data4,
             graph: new_btc_graph
         })
         const afterCoinsFound = element.find(Coin)
