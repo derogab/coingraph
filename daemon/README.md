@@ -12,7 +12,7 @@ yarn
 ```
 
 ## Configuration  
-Open `config.yml` and eventually change your preferences.
+Open `data/config.yml` and eventually change your preferences.
 
 ## Usage
 ```shell	

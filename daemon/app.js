@@ -15,7 +15,7 @@ const express = require('express')
  * Init
  * 
  */ 
-const file = fs.readFileSync('./config.yml', 'utf8');
+const file = fs.readFileSync('./data/config.yml', 'utf8');
 const config = YAML.parse(file);
 
 const adapter = new FileSync('data/' + config.db.file || 'db.json');
