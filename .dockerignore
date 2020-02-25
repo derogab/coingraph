@@ -1,0 +1,5 @@
+node_modules
+daemon
+assets 
+Dockerfile
+docker-compose.yml

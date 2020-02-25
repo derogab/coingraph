@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+
+  daemon:
+    container_name: coingraph-daemon
+    build:
+      context: daemon/.
+      dockerfile: Dockerfile
+    volumes:
+      - './daemon/data:/usr/src/app/data'
+    ports:
+      - '8080:8080'
+      - '8081:8081'
+
+  client:
+    container_name: coingraph-client
+    build:
+      context: .
+      dockerfile: Dockerfile
+    links:
+      - "daemon:daemon"
+    ports:
+      - '3000:3000'

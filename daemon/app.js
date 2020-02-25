@@ -18,7 +18,7 @@ const express = require('express')
 const file = fs.readFileSync('./config.yml', 'utf8');
 const config = YAML.parse(file);
 
-const adapter = new FileSync(config.db.file || 'db.json');
+const adapter = new FileSync('data/' + config.db.file || 'db.json');
 const db = low(adapter);
 db.defaults({ status: {}, cryptocurrencies: [] }).write();
 
