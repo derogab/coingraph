@@ -25,13 +25,26 @@ node app.js --db db.json --timeout 180 bitcoin ethereum
 Info: custom params overwrite default preferences in `.env`.
 
 ## Docker
+###### Build image 
 ```shell
 docker build -t coingraph-daemon .
 ```
+###### Start container
 ```shell
 docker run -d \
     -p 8080:8080 \
     -p 8081:8081 \
     -v /path/to/host/data:/usr/src/app/data \
     coingraph-daemon
+```
+Or with custom params
+```shell
+docker run -d \
+    -p 8080:8080 \
+    -p 8081:8081 \
+    -v /path/to/host/data:/usr/src/app/data \
+    coingraph-daemon \
+    --db db.json \
+    --timeout 180 \
+    bitcoin ethereum
 ```
