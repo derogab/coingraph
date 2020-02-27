@@ -20,7 +20,10 @@ node app.js
 ```
 Or with custom params
 ```shell
-node app.js --db db.json --timeout 180 bitcoin ethereum
+node app.js \
+    --db db.json \
+    --crypto bitcoin,ethereum \
+    --timeout 180
 ```
 Info: custom params overwrite default preferences in `.env`.
 
@@ -45,6 +48,6 @@ docker run -d \
     -v /path/to/host/data:/usr/src/app/data \
     coingraph-daemon \
     --db db.json \
-    --timeout 180 \
-    bitcoin ethereum
+    --crypto bitcoin,ethereum \
+    --timeout 180
 ```
