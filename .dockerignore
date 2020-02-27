@@ -1,5 +1,8 @@
 node_modules
+yarn.lock
 daemon
 assets 
 Dockerfile
 docker-compose.yml
+.travis.yml
+.git
