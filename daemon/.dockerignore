@@ -1,5 +1,5 @@
 node_modules
 data
-config.yml
+db.json
 Dockerfile
 docker-compose.yml

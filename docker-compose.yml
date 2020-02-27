@@ -12,13 +12,19 @@ services:
     ports:
       - '8080:8080'
       - '8081:8081'
+    environment:
+      - TIMEOUT=180
+      - DB=db.json
+      - CRYPTOCURRENCIES=bitcoin,ethereum
 
   client:
     container_name: coingraph-client
+    depends_on:
+      - daemon
+    links:
+      - daemon
     build:
       context: .
       dockerfile: Dockerfile
-    links:
-      - "daemon:daemon"
     ports:
       - '3000:3000'

@@ -4,21 +4,35 @@
  * A daemon for coingraph
  *
  */
-const fs = require('fs');
-const YAML = require('yaml');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const io = require('socket.io')()
 const express = require('express')
 
 /**
+ * Environment variables
+ * 
+ */
+require('dotenv').config();
+
+/**
+ * Args
+ * 
+ */
+var argv = require('minimist')(process.argv.slice(2));
+
+/**
  * Init
  * 
- */ 
-const file = fs.readFileSync('./data/config.yml', 'utf8');
-const config = YAML.parse(file);
+ */
+const config = {
+    url: 'https://api.coinmarketcap.com/v1/ticker/',
+    timeout: argv.timeout || process.env.TIMEOUT || 180,
+    db: argv.db || process.env.DATABASE || 'db.json',
+    cryptocurrencies: (argv._.length > 0) ? argv._ : process.env.CRYPTOCURRENCIES.split(',')
+}
 
-const adapter = new FileSync('data/' + config.db.file || 'db.json');
+const adapter = new FileSync('data/'+config.db);
 const db = low(adapter);
 db.defaults({ status: {}, cryptocurrencies: [] }).write();
 
@@ -27,7 +41,7 @@ io.listen(io_port)
 console.log('IO listening on port ', io_port)
 
 const app = express()
-const api_port = config.api.port || 8080
+const api_port = 8080
 app.listen(api_port)
 console.log('API listening on port ', api_port)
 

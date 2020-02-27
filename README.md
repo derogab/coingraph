@@ -28,6 +28,9 @@ yarn run all
 The previous command starts both the [daemon](./daemon) and the web interface.
 
 ## Docker
+Open `docker-compose.yml` and eventually change environment variables.  
+
+And then
 ```shell
 docker-compose up -d --build
 ```
