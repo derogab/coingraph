@@ -12,9 +12,26 @@ yarn
 ```
 
 ## Configuration  
-Open `.env` and eventually change your preferences.
+Open `.env` and eventually change default preferences.
 
 ## Usage
 ```shell	
-yarn start
+node app.js
+```
+Or with custom params
+```shell
+node app.js --db db.json --timeout 180 bitcoin ethereum
+```
+Info: custom params overwrite default preferences in `.env`.
+
+## Docker
+```shell
+docker build -t coingraph-daemon .
+```
+```shell
+docker run -d \
+    -p 8080:8080 \
+    -p 8081:8081 \
+    -v /path/to/host/data:/usr/src/app/data \
+    coingraph-daemon
 ```
