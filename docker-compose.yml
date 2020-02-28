@@ -15,6 +15,8 @@ services:
     environment:
       - TIMEOUT=180
       - DB=db.json
+      - IO_PORT=8081
+      - API_PORT=8080
       - CRYPTOCURRENCIES=bitcoin,ethereum
 
   client:

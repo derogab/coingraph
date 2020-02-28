@@ -23,7 +23,9 @@ Or with custom params
 node app.js \
     --db db.json \
     --crypto bitcoin,ethereum \
-    --timeout 180
+    --timeout 180 \
+    --api-port 8080 \
+    --io-port 8081
 ```
 Info: custom params overwrite default preferences in `.env`.
 
@@ -49,5 +51,7 @@ docker run -d \
     coingraph-daemon \
     --db db.json \
     --crypto bitcoin,ethereum \
-    --timeout 180
+    --timeout 180 \
+    --api-port 8080 \
+    --io-port 8081
 ```

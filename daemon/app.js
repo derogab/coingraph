@@ -32,16 +32,16 @@ const config = {
     cryptocurrencies: (argv.crypto || process.env.CRYPTOCURRENCIES).split(',')
 }
 
-const adapter = new FileSync('data/'+config.db);
+const adapter = new FileSync('data/' + config.db);
 const db = low(adapter);
 db.defaults({ status: {}, cryptocurrencies: [] }).write();
 
-const io_port = 8081
+const io_port = argv['io-port'] || process.env.IO_PORT || 8081
 io.listen(io_port)
 console.log('IO listening on port ', io_port)
 
 const app = express()
-const api_port = 8080
+const api_port = argv['api-port'] || process.env.API_PORT || 8080
 app.listen(api_port)
 console.log('API listening on port ', api_port)
 
