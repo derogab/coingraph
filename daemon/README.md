@@ -30,9 +30,9 @@ node app.js \
 Info: custom params overwrite default preferences in `.env`.
 
 ## Docker
-###### Build image 
+###### Build image from source
 ```shell
-docker build -t coingraph-daemon .
+docker build -t derogab/coingraph-daemon .
 ```
 ###### Start container
 ```shell
@@ -40,7 +40,7 @@ docker run -d \
     -p 8080:8080 \
     -p 8081:8081 \
     -v /path/to/host/data:/usr/src/app/data \
-    coingraph-daemon
+    derogab/coingraph-daemon
 ```
 Or with custom params
 ```shell
@@ -48,7 +48,7 @@ docker run -d \
     -p 8080:8080 \
     -p 8081:8081 \
     -v /path/to/host/data:/usr/src/app/data \
-    coingraph-daemon \
+    derogab/coingraph-daemon \
     --db db.json \
     --crypto bitcoin,ethereum \
     --timeout 180 \
