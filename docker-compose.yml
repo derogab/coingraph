@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+
+  daemon:
+    container_name: coingraph-daemon
+    build:
+      context: daemon/.
+      dockerfile: Dockerfile
+    volumes:
+      - './daemon/data:/usr/src/app/data'
+    ports:
+      - '8080:8080'
+      - '8081:8081'
+    environment:
+      - TIMEOUT=180
+      - DB=db.json
+      - IO_PORT=8081
+      - API_PORT=8080
+      - CRYPTOCURRENCIES=bitcoin,ethereum
+
+  client:
+    container_name: coingraph-client
+    depends_on:
+      - daemon
+    links:
+      - daemon
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      - REACT_APP_DAEMON_SOCKET_PORT=8081

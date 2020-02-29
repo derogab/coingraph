@@ -13,7 +13,7 @@ module.exports = function(db, io, app, config) {
      * 
     */
     function realtime(crypto) {
-        axios.get(config.resource.url + crypto, {
+        axios.get(config.url + crypto, {
             params: {
                 
             }
@@ -63,7 +63,7 @@ module.exports = function(db, io, app, config) {
             // always executed
             setTimeout(function(){ 
                 realtime(crypto);    
-            }, config.resource.timeout * 1000 || 60000);
+            }, config.timeout * 1000 || 60000);
         });
     }
 
