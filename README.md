@@ -28,6 +28,17 @@ yarn run all
 The previous command starts both the [daemon](./daemon) and the web interface.
 
 ## Docker
+#### Manual
+1. [Start the `coingraph-daemon`](./daemon/README.md#start-container) and then
+2. 
+    ```shell
+    docker run -d \
+      -p 3000:3000 \
+      --link DAEMON_CONTAINER_ID \
+      derogab/coingraph-client
+    ```
+
+#### Using `docker-compose` 
 Open `docker-compose.yml` and eventually change environment variables.  
 
 And then
