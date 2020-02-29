@@ -10,7 +10,7 @@
 
 Coingraph is a **real-time graph for cryptocurrencies**.
 
-![header](./assets/header.png)
+![](./assets/header.png)
 
 ## Dependencies
 ```shell
