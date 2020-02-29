@@ -9,8 +9,9 @@ import * as serviceWorker from './serviceWorker';
 
 dotenv.config();
 
+const SOCKET_URL = process.env.REACT_APP_DAEMON_SOCKET_URL || 'http://localhost';
 const SOCKET_PORT = process.env.REACT_APP_DAEMON_SOCKET_PORT || 8081;
-const socketIo = io(`http://localhost:${SOCKET_PORT}`);
+const socketIo = io(`${SOCKET_URL}:${SOCKET_PORT}`);
 
 ReactDOM.render(<App socket={socketIo} />, document.getElementById('root'));
 
