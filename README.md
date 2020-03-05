@@ -10,7 +10,7 @@
 
 Coingraph is a **real-time graph for cryptocurrencies**.
 
-![header](./assets/header.png)
+![](./assets/header.png)
 
 ## Dependencies
 ```shell
@@ -28,9 +28,14 @@ yarn run all
 The previous command starts both the [daemon](./daemon) and the web interface.
 
 ## Docker
+
+[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/derogab/coingraph?include_prereleases&style=flat-square)](https://github.com/derogab/coingraph/releases)
+[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/derogab/coingraph-client/latest?style=flat-square)](https://hub.docker.com/r/derogab/coingraph-client)
+[![Docker Pulls](https://img.shields.io/docker/pulls/derogab/coingraph-client?style=flat-square)](https://hub.docker.com/r/derogab/coingraph-client)
+
 #### Manual
 1. [Start the `coingraph-daemon`](./daemon/README.md#start-container) and then
-2. 
+2. Run the container
     ```shell
     docker run -d \
       -p 3000:3000 \
@@ -39,12 +44,10 @@ The previous command starts both the [daemon](./daemon) and the web interface.
     ```
 
 #### Using `docker-compose` 
-Open `docker-compose.yml` and eventually change environment variables.  
-
-And then
+Open `docker-compose.yml` and eventually change environment variables. And then
 ```shell
 docker-compose up -d --build
 ```
 
 ## License
-_Coingraph_ is made with ♥  by [derogab](https://github.com/derogab) and the [amazing dev team](https://github.com/derogab/coingraph/graphs/contributors). It is released under the MIT license.
+[_Coingraph_](https://github.com/derogab/coingraph) is made with ♥  by [derogab](https://github.com/derogab) and the [amazing dev team](https://github.com/derogab/coingraph/graphs/contributors). It is released under the MIT license.

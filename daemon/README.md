@@ -30,6 +30,11 @@ node app.js \
 Info: custom params overwrite default preferences in `.env`.
 
 ## Docker
+
+[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/derogab/coingraph?include_prereleases&style=flat-square)](https://github.com/derogab/coingraph/releases)
+[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/derogab/coingraph-daemon/latest?style=flat-square)](https://hub.docker.com/r/derogab/coingraph-daemon)
+[![Docker Pulls](https://img.shields.io/docker/pulls/derogab/coingraph-daemon?style=flat-square)](https://hub.docker.com/r/derogab/coingraph-daemon)
+
 ###### Build image from source
 ```shell
 docker build -t derogab/coingraph-daemon .
