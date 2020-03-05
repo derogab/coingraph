@@ -30,8 +30,8 @@ The previous command starts both the [daemon](./daemon) and the web interface.
 ## Docker
 
 [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/derogab/coingraph?include_prereleases&style=flat-square)](https://github.com/derogab/coingraph/releases)
-![Docker Image Size (tag)](https://img.shields.io/docker/image-size/derogab/coingraph-client/latest?style=flat-square)
-![Docker Pulls](https://img.shields.io/docker/pulls/derogab/coingraph-client?style=flat-square)
+[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/derogab/coingraph-client/latest?style=flat-square)](https://hub.docker.com/r/derogab/coingraph-client)
+[![Docker Pulls](https://img.shields.io/docker/pulls/derogab/coingraph-client?style=flat-square)](https://hub.docker.com/r/derogab/coingraph-client)
 
 #### Manual
 1. [Start the `coingraph-daemon`](./daemon/README.md#start-container) and then
