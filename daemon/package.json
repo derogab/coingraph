@@ -10,7 +10,7 @@
     "fs": "^0.0.1-security",
     "http": "^0.0.0",
     "lowdb": "^1.0.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.2",
     "socket.io": "^2.3.0"
   },
   "scripts": {
