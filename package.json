@@ -1,6 +1,6 @@
 {
   "name": "coingraph",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
