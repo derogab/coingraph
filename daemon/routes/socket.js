@@ -37,7 +37,7 @@ module.exports = function(db, io, app, config) {
 
                 var historical_data = db.get('cryptocurrencies').find(cryptocurrency).value().data;
 
-                io.emit('historical-data', fix(cryptocurrency, historical_data));
+                client.emit('historical-data', fix(cryptocurrency, historical_data));
 
             }
 
