@@ -14,7 +14,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (active) {
     var price = payload[0].value;
     var time = label;
-      var ts = new Date(time * 1000);
+      var ts = new Date(time);
 
     return (
       <div className="custom-tooltip">

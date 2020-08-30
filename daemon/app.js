@@ -26,7 +26,7 @@ var argv = require('minimist')(process.argv.slice(2));
  * 
  */
 const config = {
-    url: 'https://api.coinmarketcap.com/v1/ticker/',
+    url: 'https://api.coingecko.com/api/v3/coins/',
     timeout: argv.timeout || process.env.TIMEOUT || 180,
     db: argv.db || process.env.DATABASE || 'db.json',
     cryptocurrencies: (argv.crypto || process.env.CRYPTOCURRENCIES).split(',')
