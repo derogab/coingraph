@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import io from 'socket.io-client';
+import { io } from 'socket.io-client';
 import dotenv from 'dotenv';
 
 import './index.css';

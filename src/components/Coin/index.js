@@ -11,18 +11,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 
 const CustomTooltip = ({ active, payload, label }) => {
-  if (active) {
+  if (active && payload) {
     var price = payload[0].value;
     var time = label;
       var ts = new Date(time);
 
     return (
       <div className="custom-tooltip">
-        <p>
-          The value was
-          <h4>{`$${price.toFixed(2)}`}</h4>
-          on {`${ts.toUTCString()}`}
-        </p>
+        The value was
+        <h4>{`$${price.toFixed(2)}`}</h4>
+        on {`${ts.toUTCString()}`}
       </div>
     );
   }

@@ -6,14 +6,26 @@
  */
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
-const io = require('socket.io')()
 const express = require('express')
+const app = express()
 
 /**
  * Environment variables
  * 
  */
 require('dotenv').config();
+
+/**
+ * Socket.io
+ * 
+ */
+const httpServer = require('http').createServer(app)
+const io = require('socket.io')(httpServer, {
+    cors: {
+      origin: "*",
+      methods: ["GET", "POST"]
+    }
+});
 
 /**
  * Args
@@ -40,7 +52,6 @@ const io_port = argv['io-port'] || process.env.IO_PORT || 8081
 io.listen(io_port)
 console.log('IO listening on port ', io_port)
 
-const app = express()
 const api_port = argv['api-port'] || process.env.API_PORT || 8080
 app.listen(api_port)
 console.log('API listening on port ', api_port)
