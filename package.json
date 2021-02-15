@@ -1,6 +1,6 @@
 {
   "name": "coingraph",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "author": "derogab",
   "description": "A real-time graph for cryptocurrencies",
   "license": "MIT",
