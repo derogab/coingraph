@@ -12,12 +12,8 @@ services:
     ports:
       - '8080:8080'
       - '8081:8081'
-    environment:
-      - TIMEOUT=180
-      - DB=db.json
-      - IO_PORT=8081
-      - API_PORT=8080
-      - CRYPTOCURRENCIES=bitcoin,ethereum
+    env_file:
+      - ./daemon/.env
 
   client:
     container_name: coingraph-client
@@ -30,6 +26,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - '3000:80'
-    environment:
-      - REACT_APP_DAEMON_SOCKET_URL=http://localhost
-      - REACT_APP_DAEMON_SOCKET_PORT=8081
+    env_file:
+      - .env
