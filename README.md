@@ -1,12 +1,11 @@
 # Coingraph
 
-[![GitHub package.json version](https://img.shields.io/github/package-json/v/derogab/coingraph?style=flat-square)](https://github.com/derogab/coingraph)
 [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/derogab/coingraph?include_prereleases&style=flat-square)](https://github.com/derogab/coingraph/releases)
 [![Travis (.org)](https://img.shields.io/travis/derogab/coingraph?style=flat-square)](https://travis-ci.com/derogab/coingraph/)
 [![GitHub stars](https://img.shields.io/github/stars/derogab/coingraph?style=flat-square)](https://github.com/derogab/coingraph/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/derogab/coingraph?style=flat-square)](https://github.com/derogab/coingraph/network)
 [![GitHub issues](https://img.shields.io/github/issues/derogab/coingraph?style=flat-square)](https://github.com/derogab/coingraph/issues)
-
+[![GitHub License](https://img.shields.io/github/license/derogab/coingraph?style=flat-square)](https://github.com/derogab/coingraph/blob/master/LICENSE)
 
 Coingraph is a **real-time graph for cryptocurrencies**.
 
