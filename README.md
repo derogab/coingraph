@@ -44,9 +44,18 @@ The previous command starts both the [daemon](./daemon) and the web interface.
     ```
 
 #### Using `docker-compose` 
-Open `docker-compose.yml` and eventually change environment variables. And then
+Open `.env` files and eventually change environment variables. And then start one of the following.
+###### Production 
 ```shell
-docker-compose up -d --build
+docker-compose up -d
+```
+###### Development
+```shell
+docker-compose -f docker-compose.dev.yml up -d 
+```
+###### Build 
+```shell
+docker-compose -f docker-compose.build.yml up -d --build
 ```
 
 ## License
