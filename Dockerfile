@@ -13,7 +13,7 @@ RUN yarn
 # Copy app
 COPY . .
 # Build
-RUN yarn build
+RUN yarn run build
 
 # production environment
 FROM nginx:stable-alpine
