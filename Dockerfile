@@ -1,5 +1,5 @@
 # build environment
-FROM node:10 as build
+FROM node:lts as build
 # Create app directory
 WORKDIR /usr/src/app
 # Set environments
@@ -16,7 +16,7 @@ COPY . .
 RUN yarn build
 
 # production environment
-FROM nginx:stable-alpine
+FROM nginx:stable
 # Copy app
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 # Expose ports 
