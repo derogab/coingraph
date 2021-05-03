@@ -1,0 +1,25 @@
+.box-graph{
+    margin: 5px;
+    border: 1px solid var(--theme-value-box-default-text);
+    padding: 25px 10px 25px 10px;
+    border-radius: 3px;
+}
+
+.box-data{
+    margin: 5px;
+    border: 1px solid var(--theme-value-box-default-text);
+    padding: 25px 10px 25px 10px;
+    border-radius: 3px;
+}
+
+.custom-tooltip {
+    color: var(--theme-graph-tooltip-text);
+    background-color: var(--theme-graph-tooltip-background);
+    border: 1px solid var(--theme-graph-tooltip-border);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.coin-row {
+    padding: 0px 20px 5px 20px
+}

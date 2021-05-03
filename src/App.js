@@ -1,19 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-import CoinsContainer from './containers/Coins'
-import Footer from './containers/Footer'
-import './App.css'
+import CoinsContainer from './containers/Coins';
+import Footer from './containers/Footer';
+import './theme.scss';
+import './App.scss';
 
 function App({socket}) {
+
+  const [theme, setTheme] = useState('dark');
+
   return (
     <>
-      <div className="header"></div>
-      <div className="content">
-        <CoinsContainer socket={socket} />
-      </div>
-      <div className="footer">
-        <Footer />
+      <div className={`App ${theme}`}>
+        <div className="header"></div>
+        <div className="content">
+          <CoinsContainer socket={socket} />
+        </div>
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
     </>
   );

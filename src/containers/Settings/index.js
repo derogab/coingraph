@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import ReactModal from 'react-modal';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
+import './index.scss';
 
 
 export default class Settings extends Component {
@@ -30,7 +30,8 @@ export default class Settings extends Component {
       return (
         <div>
             <button className="settings-trigger text-muted" onClick={this.handleOpenModal}>Settings</button>
-            <ReactModal 
+            <ReactModal
+                id="settings-modal" 
                 contentLabel="Settings"
                 isOpen={this.state.showModal}                
             >

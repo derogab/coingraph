@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import Settings from '../Settings'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
+import './index.scss';
 
 export default class Footer extends Component {
 
