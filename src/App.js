@@ -8,7 +8,7 @@ import './App.scss';
 
 function App({socket}) {
 
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light'); // default = light
 
   return (
     <>
