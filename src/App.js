@@ -6,12 +6,14 @@ import Footer from './containers/Footer';
 import './theme.scss';
 import './App.scss';
 
+import ThemeContext from './ThemeContext'
+
 function App({socket}) {
 
   const [theme, setTheme] = useState('light'); // default = light
 
   return (
-    <>
+    <ThemeContext.Provider value={{theme, setTheme}}>
       <div className={`App ${theme}`}>
         <div className="header"></div>
         <div className="content">
@@ -21,7 +23,7 @@ function App({socket}) {
           <Footer />
         </div>
       </div>
-    </>
+    </ThemeContext.Provider>
   );
 }
 App.propTypes = {
