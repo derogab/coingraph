@@ -1,6 +1,5 @@
 html, body, #root, .App {
   background-color: var(--theme-page-background);
-  height: 100%;
 }
 
 body {
@@ -33,5 +32,7 @@ h6 {
 }
 
 .content {
-  padding-top: 10px;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  min-height: 80%;
 }

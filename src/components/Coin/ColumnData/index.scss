@@ -1,17 +1,23 @@
-.downhill{
+.downhill {
     border: 1px solid var(--theme-value-box-danger-background) !important;
-    color: var(--theme-value-box-danger-text);
     background-color: var(--theme-value-box-danger-background);
 }
-
-.uphill{
-    border: 1px solid var(--theme-value-box-success-background) !important;
-    color: var(--theme-value-box-success-text);
-    background-color: var(--theme-value-box-success-background);
+.downhill h1 { 
+    color: var(--theme-value-box-danger-text) !important; 
 }
 
-.nohill{
+.uphill {
+    border: 1px solid var(--theme-value-box-success-background) !important;
+    background-color: var(--theme-value-box-success-background);
+}
+.uphill h1 { 
+    color: var(--theme-value-box-success-text) !important;
+}
+
+.nohill {
     border: 1px solid var(--theme-value-box-default-text) !important;
-    color: var(--theme-value-box-default-text);
     background-color: var(--theme-value-box-default-background);
+}
+.nohill h1 { 
+    color: var(--theme-value-box-default-text) !important;
 }

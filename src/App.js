@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import ThemeContext from './ThemeContext';
 import CoinsContainer from './containers/Coins';
-import Footer from './containers/Footer';
+import MyFooter from './containers/MyFooter';
 import './theme.scss';
 import './App.scss';
 
-import ThemeContext from './ThemeContext'
+import { Layout } from 'antd';
+const { Content } = Layout;
 
 function App({socket}) {
 
@@ -14,15 +16,12 @@ function App({socket}) {
 
   return (
     <ThemeContext.Provider value={{theme, setTheme}}>
-      <div className={`App ${theme}`}>
-        <div className="header"></div>
-        <div className="content">
+      <Layout className={`App ${theme}`}>
+        <Content className='content'>
           <CoinsContainer socket={socket} />
-        </div>
-        <div className="footer">
-          <Footer />
-        </div>
-      </div>
+        </Content>
+        <MyFooter />
+      </Layout>
     </ThemeContext.Provider>
   );
 }
