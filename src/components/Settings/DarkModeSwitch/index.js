@@ -4,7 +4,7 @@ import "antd/dist/antd.css";
 import './index.scss';
 
 import { Switch } from "antd";
-import ThemeContext, {THEME} from '../../ThemeContext';
+import ThemeContext, {THEME} from '../../../ThemeContext';
 
 export default class DarkModeSwitch extends Component {
 

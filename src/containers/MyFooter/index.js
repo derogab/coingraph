@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import Settings from '../Settings'
+import Settings from '../../components/Settings'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.scss';
