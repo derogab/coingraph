@@ -1,5 +1,10 @@
+html, body, #root {
+  height: 100%;
+}
+
 html, body, #root, .App {
   background-color: var(--theme-page-background);
+  min-height: 100% !important;
 }
 
 body {
@@ -34,5 +39,4 @@ h6 {
 .content {
   padding-top: 7px;
   padding-bottom: 5px;
-  min-height: 80%;
 }
