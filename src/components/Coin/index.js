@@ -8,7 +8,7 @@ import {
 import { CashData, PercentageData } from './ColumnData'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css'
+import './index.scss'
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload) {
@@ -31,7 +31,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 function Coin({datagraph, dataset, prefix}) {
 
   return (
-    <div style={{padding: 20}}>
+    <div class="coin-row">
       <header className={`${prefix}-header`}>
       </header>
       <div className={`${prefix}-body`}>
@@ -42,7 +42,7 @@ function Coin({datagraph, dataset, prefix}) {
             <LineChart margin={{ top: 0, right: 0, left: 0, bottom: 0 }} data={datagraph}>
               <XAxis dataKey='time' hide={true} domain={['auto', 'auto']} scale='time' type='number'/>
               <YAxis dataKey='price' hide={false} domain={['auto', 'auto']} />
-              <Line type='monotone' dataKey='price' stroke='#ecf0f1' strokeWidth={2} dot={false} isAnimationActive={false} />
+              <Line type='monotone' dataKey='price' stroke='#bdc3c7' strokeWidth={2} dot={false} isAnimationActive={false} />
               <Tooltip content={<CustomTooltip />} />
             </LineChart>
           </ResponsiveContainer>

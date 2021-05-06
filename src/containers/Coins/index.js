@@ -6,7 +6,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import Coin from '../../components/Coin'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css'
+import './index.scss'
 
 export default class CoinsContainer extends Component {
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Col} from 'react-bootstrap'
 
-import './index.css'
+import './index.scss'
 
 export function CashData({data, value}) {
 

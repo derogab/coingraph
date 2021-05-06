@@ -1,49 +1,60 @@
-import React, {Component} from 'react'
-
-import ReactModal from 'react-modal';
+import React, { Component } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
+import "antd/dist/antd.css";
+import './index.scss';
 
+import { Modal } from "antd";
+import { SettingOutlined } from '@ant-design/icons';
+import DarkModeSwitch from '../../components/DarkModeSwitch'
 
 export default class Settings extends Component {
 
     constructor () {
       super();
+
       this.state = {
-        showModal: false
+        open: false
       };
-      
+
       this.handleOpenModal = this.handleOpenModal.bind(this);
-      this.handleCloseModal = this.handleCloseModal.bind(this);
+      this.handleOkModal = this.handleOkModal.bind(this);
+      this.handleCancelModal = this.handleCancelModal.bind(this);
     }
     
     handleOpenModal () {
-      this.setState({ showModal: true });
+      this.setState({ open: true });
     }
     
-    handleCloseModal () {
-      this.setState({ showModal: false });
+    handleOkModal () {
+      this.setState({ open: false });
+    }
+
+    handleCancelModal () {
+      this.setState({ open: false });
     }
     
     render () {
       return (
         <div>
-            <button className="settings-trigger text-muted" onClick={this.handleOpenModal}>Settings</button>
-            <ReactModal 
-                contentLabel="Settings"
-                isOpen={this.state.showModal}                
-            >
-                <h1>Settings</h1>
-
-
-                <div className="footer-buttons">
-                    
-                    <button className="btn btn-primary" onClick={this.handleCloseModal}>Close</button>
-
-                </div>
+          <SettingOutlined 
+            className="settings-trigger text-muted"
+            onClick={this.handleOpenModal}
+          />
+          <Modal
+            title="Settings"
+            id="settings-modal" 
+            visible={this.state.open}
+            onOk={this.handleOkModal}
+            onCancel={this.handleCancelModal}
+          >
+            
+            <div className="row">
+              <div className="col-md-6">Dark Mode</div>
+              <div className="col-md-6"><DarkModeSwitch /></div>
+            </div>
           
-          </ReactModal>
+          </Modal>
         </div>
       );
     }

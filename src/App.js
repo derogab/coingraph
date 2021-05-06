@@ -1,21 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-import CoinsContainer from './containers/Coins'
-import Footer from './containers/Footer'
-import './App.css'
+import ThemeContext from './ThemeContext';
+import CoinsContainer from './containers/Coins';
+import MyFooter from './containers/MyFooter';
+import './theme.scss';
+import './App.scss';
+
+import { Layout } from 'antd';
+const { Content } = Layout;
 
 function App({socket}) {
+
+  const [theme, setTheme] = useState('light'); // default = light
+
   return (
-    <>
-      <div className="header"></div>
-      <div className="content">
-        <CoinsContainer socket={socket} />
-      </div>
-      <div className="footer">
-        <Footer />
-      </div>
-    </>
+    <ThemeContext.Provider value={{theme, setTheme}}>
+      <Layout className={`App ${theme}`}>
+        <Content className='content'>
+          <CoinsContainer socket={socket} />
+        </Content>
+        <MyFooter />
+      </Layout>
+    </ThemeContext.Provider>
   );
 }
 App.propTypes = {

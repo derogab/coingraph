@@ -1,0 +1,23 @@
+.downhill {
+    border: 1px solid var(--theme-value-box-danger-background) !important;
+    background-color: var(--theme-value-box-danger-background);
+}
+.downhill h1 { 
+    color: var(--theme-value-box-danger-text) !important; 
+}
+
+.uphill {
+    border: 1px solid var(--theme-value-box-success-background) !important;
+    background-color: var(--theme-value-box-success-background);
+}
+.uphill h1 { 
+    color: var(--theme-value-box-success-text) !important;
+}
+
+.nohill {
+    border: 1px solid var(--theme-value-box-default-text) !important;
+    background-color: var(--theme-value-box-default-background);
+}
+.nohill h1 { 
+    color: var(--theme-value-box-default-text) !important;
+}
