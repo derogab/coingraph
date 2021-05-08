@@ -1,6 +1,6 @@
 import React from 'react'
-import {shallow} from 'enzyme'
-import Spinner from 'react-bootstrap/Spinner'
+import { shallow } from 'enzyme'
+import { Spin } from 'antd';
 
 import CoinContainer from './'
 import Coin from '../../components/Coin';
@@ -127,6 +127,6 @@ describe('CoinContainer', () => {
     it('renders loading if no data has been received', () => {
         const element = shallow(<CoinContainer {...props} />)
         expect(element.state().coinsData).toEqual({})
-        expect(element.find(Spinner)).toHaveLength(1)
+        expect(element.find(Spin)).toHaveLength(1)
     })
 })

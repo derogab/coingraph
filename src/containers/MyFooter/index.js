@@ -1,16 +1,17 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import { Layout, Row, Col } from 'antd';
 
-import Settings from '../../components/Settings'
+import Settings from '../../components/Settings';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css';
 import './index.scss';
 
-import { Layout, Row, Col } from 'antd';
-const { Footer } = Layout;
 
 export default class MyFooter extends Component {
 
     render() {
+
+        const { Footer } = Layout;
 
         return (
             <Footer className="footer">
