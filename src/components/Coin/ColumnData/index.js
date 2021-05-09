@@ -1,16 +1,19 @@
-import React from 'react'
-import {Col} from 'react-bootstrap'
+import React from 'react';
+import { Col } from 'antd';
 
-import './index.scss'
+import 'antd/dist/antd.css';
+import './index.scss';
 
 export function CashData({data, value}) {
 
   data = '$' + data.toFixed(2);
 
   return (
-    <Col className="box-data nohill">
-      <h6>{value}</h6>
-      <h1>{data}</h1>
+    <Col span={12}>
+      <div className="box-data nohill">
+        <h6>{value}</h6>
+        <h1>{data}</h1>
+      </div>
     </Col>
   )
 }
@@ -24,9 +27,11 @@ export function PercentageData({data, value}) {
   data = data.toFixed(2) + '%';
 
   return (
-    <Col  className={"box-data " + hill}>
-      <h6>{value}</h6>
-      <h1>{data}</h1>
+    <Col span={12}>
+      <div className={"box-data " + hill}>
+        <h6>{value}</h6>
+        <h1>{data}</h1>
+      </div>
     </Col>
   )
 }

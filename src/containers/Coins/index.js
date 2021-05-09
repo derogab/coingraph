@@ -1,12 +1,13 @@
-import React, {Component} from 'react'
-import get from 'lodash.get'
-import PropTypes from 'prop-types'
-import Spinner from 'react-bootstrap/Spinner'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
+import get from 'lodash.get';
 
-import Coin from '../../components/Coin'
+import Coin from '../../components/Coin';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.scss'
+import 'antd/dist/antd.css';
+import './index.scss';
 
 export default class CoinsContainer extends Component {
 
@@ -72,12 +73,14 @@ export default class CoinsContainer extends Component {
         const {coinsData} = this.state
         const dataKeys = Object.keys(coinsData)
 
-        if (dataKeys.length === 0) 
+        if (dataKeys.length === 0) {
+
+            const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
             return (
-                <Spinner animation="border" role="status" className="loading">
-                    <span className="sr-only">Loading...</span>
-                </Spinner>
+                <Spin indicator={antIcon} className="loading" />
             )
+        }
 
         return (
             dataKeys.map(key => {

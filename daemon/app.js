@@ -6,8 +6,8 @@
  */
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 
 /**
  * Environment variables

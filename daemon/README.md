@@ -11,8 +11,8 @@ A daemon for coingraph who takes care of
 yarn
 ```
 
-## Configuration  
-Open `.env` and eventually change default preferences.
+## Configuration 
+Copy `.env.template` to `.env`. Eventually change default preferences.
 
 ## Usage
 ```shell	

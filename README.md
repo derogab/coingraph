@@ -43,7 +43,7 @@ The previous command starts both the [daemon](./daemon) and the web interface.
     ```
 
 #### Using `docker-compose` 
-Open `.env` files and eventually change environment variables. And then start one of the following.
+Copy `.env.template` to `.env`. Eventually change environment variables and then start one of the following.
 ###### Production 
 ```shell
 docker-compose up -d

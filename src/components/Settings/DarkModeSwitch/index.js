@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import "antd/dist/antd.css";
-import './index.scss';
+import { Switch } from 'antd';
+import ThemeContext, {THEME} from '../../../ThemeContext';
 
-import { Switch } from "antd";
-import ThemeContext, {THEME} from '../../ThemeContext';
+import 'antd/dist/antd.css';
+import './index.scss';
 
 export default class DarkModeSwitch extends Component {
 

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "antd/dist/antd.css";
-import './index.scss';
-
-import { Modal } from "antd";
+import { Modal, Row, Col } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
-import DarkModeSwitch from '../../components/DarkModeSwitch'
+import DarkModeSwitch from './DarkModeSwitch'
+
+import 'antd/dist/antd.css';
+import './index.scss';
 
 export default class Settings extends Component {
 
@@ -49,10 +48,12 @@ export default class Settings extends Component {
             onCancel={this.handleCancelModal}
           >
             
-            <div className="row">
-              <div className="col-md-6">Dark Mode</div>
-              <div className="col-md-6"><DarkModeSwitch /></div>
-            </div>
+            <Row>
+              <Col span={14}>Dark Mode</Col>
+              <Col span={10}>
+                <DarkModeSwitch />
+              </Col>
+            </Row>
           
           </Modal>
         </div>
