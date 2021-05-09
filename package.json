@@ -10,7 +10,6 @@
     "antd": "^4.15.4",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
-    "http": "^0.0.1-security",
     "lodash.get": "^4.4.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
