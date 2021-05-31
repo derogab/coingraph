@@ -75,6 +75,15 @@ export default class Info extends Component {
               <Col span={10}>Developer</Col>
             </Row>
             
+            <h4>Source</h4>
+            <Row>
+              <Col span={14}>GitHub</Col>
+              <Col span={10}>
+                <a href="https://github.com/derogab/coingraph" target="_coingraph">
+                  derogab/coingraph
+                </a>
+              </Col>
+            </Row>
 
 
           </Modal>
