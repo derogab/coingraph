@@ -78,7 +78,9 @@ export default class CoinsContainer extends Component {
             const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
             return (
-                <Spin indicator={antIcon} className="loading" />
+                <div className="loading">
+                    <Spin indicator={antIcon} />
+                </div>
             )
         }
 
