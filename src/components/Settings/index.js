@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import { Modal, Row, Col } from 'antd';
+import { Modal, Button, Row, Col } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
-import DarkModeSwitch from './DarkModeSwitch'
+import DarkModeSwitch from './DarkModeSwitch';
 
 import 'antd/dist/antd.css';
 import './index.scss';
@@ -46,6 +46,11 @@ export default class Settings extends Component {
             visible={this.state.open}
             onOk={this.handleOkModal}
             onCancel={this.handleCancelModal}
+            footer={[
+              <Button key="submit" type="primary" onClick={this.handleOkModal}>
+                Ok
+              </Button>
+            ]}
           >
             
             <Row>
@@ -54,7 +59,7 @@ export default class Settings extends Component {
                 <DarkModeSwitch />
               </Col>
             </Row>
-          
+            
           </Modal>
         </div>
       );
