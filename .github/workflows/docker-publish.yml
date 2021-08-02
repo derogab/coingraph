@@ -3,8 +3,10 @@ name: Docker
 on:
   push:
     # Publish `master` as Docker `latest` image.
+    # Publish `dev` as Docker `dev` image.
     branches:
       - master
+      - dev
 
     # Publish `v1.2.3` tags as releases.
     tags:
@@ -94,6 +96,9 @@ jobs:
 
           # Use Docker `latest` tag convention
           [ "$VERSION" == "master" ] && VERSION=latest
+
+          # Use Docker `dev` tag convention
+          [ "$VERSION" == "dev" ] && VERSION=dev
 
           echo IMAGE_ID_DAEMON=$IMAGE_ID_DAEMON
           echo VERSION=$VERSION
