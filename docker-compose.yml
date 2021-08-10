@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3'
 
 services:
 
@@ -21,6 +21,6 @@ services:
       - daemon
     image: derogab/coingraph-client:latest
     ports:
-      - '3000:80'
+      - '3000:3000'
     env_file:
       - .env

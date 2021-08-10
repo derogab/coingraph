@@ -8,7 +8,7 @@ A daemon for coingraph who takes care of
 
 ## Dependencies
 ```shell	
-yarn
+npm install
 ```
 
 ## Configuration  

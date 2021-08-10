@@ -13,7 +13,7 @@ Coingraph is a **real-time graph for cryptocurrencies**.
 
 ## Dependencies
 ```shell
-yarn
+npm install
 ```
 And don't forget to also install the [daemon dependencies](./daemon/README.md#dependencies)!
 
@@ -22,7 +22,7 @@ If necessary, view the [daemon configurations](./daemon/README.md#configuration)
 
 ## Usage
 ```shell
-yarn run all
+npm run all
 ```
 The previous command starts both the [daemon](./daemon) and the web interface.
 
