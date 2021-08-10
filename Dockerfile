@@ -1,25 +1,19 @@
-# build environment
-FROM node:10 as build
+FROM node:14
+
 # Create app directory
 WORKDIR /usr/src/app
-# Set environments
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
+
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY package.json ./
-COPY yarn.lock ./
-RUN yarn 
+COPY package*.json ./
+RUN npm install
+
 # Copy app
 COPY . .
-# Build
-RUN yarn run build
 
-# production environment
-FROM nginx:stable-alpine
-# Copy app
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
 # Expose ports 
-EXPOSE 80
+EXPOSE 3000
+
 # Run command 
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ "npm", "start" ]

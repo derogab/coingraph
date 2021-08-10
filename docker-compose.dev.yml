@@ -1,10 +1,10 @@
-version: '3.7'
+version: '3'
 
 services:
 
   daemon:
     container_name: coingraph-daemon
-    image: derogab/coingraph-daemon:dev
+    image: ghcr.io/derogab/coingraph-daemon:dev
     volumes:
       - './daemon/data:/usr/src/app/data'
     ports:
@@ -19,8 +19,8 @@ services:
       - daemon
     links:
       - daemon
-    image: derogab/coingraph-client:dev
+    image: ghcr.io/derogab/coingraph-client:dev
     ports:
-      - '3000:80'
+      - '3000:3000'
     env_file:
       - .env
