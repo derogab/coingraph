@@ -25,6 +25,10 @@
     border-radius: 5px;
 }
 
+.custom-tooltip h4 {
+    color: var(--theme-graph-tooltip-text);
+}
+
 .coin-row {
     padding: 0px 5px 5px 5px;
 }
