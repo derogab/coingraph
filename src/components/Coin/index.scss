@@ -1,0 +1,38 @@
+.box-graph {
+    margin: 5px;
+    border: 1px solid var(--theme-value-box-default-text);
+    padding: 25px 10px 25px 10px;
+    border-radius: 3px;
+    height: 255px;
+}
+
+.box-data {
+    margin: 5px;
+    border: 1px solid var(--theme-value-box-default-text);
+    padding: 25px 10px 25px 10px;
+    border-radius: 3px;
+}
+
+.box-data h1 {
+    font-size: 2em;
+}
+
+.custom-tooltip {
+    color: var(--theme-graph-tooltip-text);
+    background-color: var(--theme-graph-tooltip-background);
+    border: 1px solid var(--theme-graph-tooltip-border);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.custom-tooltip h4 {
+    color: var(--theme-graph-tooltip-text);
+}
+
+.coin-row {
+    padding: 0px 5px 5px 5px;
+}
+
+h4 {
+    color: var(--theme-value-box-default-text);  
+}

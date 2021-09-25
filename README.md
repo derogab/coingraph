@@ -1,11 +1,11 @@
 # Coingraph
 
-[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/derogab/coingraph?include_prereleases&style=flat-square)](https://github.com/derogab/coingraph/releases)
-[![Travis (.org)](https://img.shields.io/travis/derogab/coingraph?style=flat-square)](https://travis-ci.com/derogab/coingraph/)
-[![GitHub stars](https://img.shields.io/github/stars/derogab/coingraph?style=flat-square)](https://github.com/derogab/coingraph/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/derogab/coingraph?style=flat-square)](https://github.com/derogab/coingraph/network)
-[![GitHub issues](https://img.shields.io/github/issues/derogab/coingraph?style=flat-square)](https://github.com/derogab/coingraph/issues)
-[![GitHub License](https://img.shields.io/github/license/derogab/coingraph?style=flat-square)](https://github.com/derogab/coingraph/blob/master/LICENSE)
+[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/derogab/coingraph?include_prereleases)](https://github.com/derogab/coingraph/releases)
+[![Travis (.org)](https://img.shields.io/travis/derogab/coingraph)](https://travis-ci.com/derogab/coingraph/)
+[![GitHub stars](https://img.shields.io/github/stars/derogab/coingraph)](https://github.com/derogab/coingraph/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/derogab/coingraph)](https://github.com/derogab/coingraph/network)
+[![GitHub issues](https://img.shields.io/github/issues/derogab/coingraph)](https://github.com/derogab/coingraph/issues)
+[![GitHub License](https://img.shields.io/github/license/derogab/coingraph)](https://github.com/derogab/coingraph/blob/master/LICENSE)
 
 Coingraph is a **real-time graph for cryptocurrencies**.
 
@@ -28,7 +28,8 @@ The previous command starts both the [daemon](./daemon) and the web interface.
 
 ## Docker
 
-[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/derogab/coingraph?include_prereleases&style=flat-square)](https://github.com/derogab/coingraph/releases)
+[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/derogab/coingraph?include_prereleases)](https://github.com/derogab/coingraph/releases)
+[![Build & Push Docker Image](https://github.com/derogab/coingraph/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/derogab/coingraph/actions/workflows/docker-publish.yml)
 
 #### Manual
 1. [Start the `coingraph-daemon`](./daemon/README.md#start-container) and then
@@ -41,7 +42,7 @@ The previous command starts both the [daemon](./daemon) and the web interface.
     ```
 
 #### Using `docker-compose` 
-Open `.env` files and eventually change environment variables. And then start one of the following.
+Copy `.env.template` to `.env`. Eventually change environment variables and then start one of the following.
 ###### Production 
 ```shell
 docker-compose up -d

@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import { io } from 'socket.io-client';
 import dotenv from 'dotenv';
 
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+import 'antd/dist/antd.css';
+import './index.scss';
 
 dotenv.config();
 
