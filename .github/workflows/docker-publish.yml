@@ -31,8 +31,8 @@ env:
 jobs:
 
   # Run tests.
-  test:
-    name: Run tests
+  test-daemon:
+    name: Test Daemon
     runs-on: ubuntu-latest
 
     steps:
@@ -45,6 +45,21 @@ jobs:
             docker-compose --file docker-compose.test.yml run sut
           else
             docker build ./daemon/ --file Dockerfile
+          fi
+
+  test-client:
+    name: Test Client
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run tests
+        run: |
+          if [ -f docker-compose.test.yml ]; then
+            docker-compose --file docker-compose.test.yml build
+            docker-compose --file docker-compose.test.yml run sut
+          else
             docker build . --file Dockerfile
           fi
 
@@ -52,7 +67,7 @@ jobs:
   push-daemon-to-github-packages:
 
     # Ensure test job passes before pushing image.
-    needs: test
+    needs: test-daemon
 
     name: Build Daemon & Push to GitHub Registry
     runs-on: ubuntu-latest
@@ -103,7 +118,7 @@ jobs:
   push-client-to-github-packages:
 
     # Ensure test job passes before pushing image.
-    needs: test
+    needs: test-client
 
     name: Build Client & Push to GitHub Registry
     runs-on: ubuntu-latest
@@ -154,7 +169,7 @@ jobs:
   push-daemon-to-docker-hub:
 
     # Ensure test job passes before pushing image.
-    needs: test
+    needs: test-daemon
 
     name: Build Daemon & Push to Docker Hub
     runs-on: ubuntu-latest
@@ -205,7 +220,7 @@ jobs:
   push-client-to-docker-hub:
 
     # Ensure test job passes before pushing image.
-    needs: test
+    needs: test-client
 
     name: Build Client & Push to Docker Hub
     runs-on: ubuntu-latest
