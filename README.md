@@ -37,7 +37,7 @@ The previous command starts both the [daemon](./daemon) and the web interface.
 2. Run the container
     ```shell
     docker run -d \
-      -p 3000:3000 \
+      -p 3000:80 \
       --link DAEMON_CONTAINER_ID \
       ghcr.io/derogab/coingraph-client
     ```
