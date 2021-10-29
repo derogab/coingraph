@@ -31,8 +31,9 @@ Info: custom params overwrite default preferences in `.env`.
 
 ## Docker
 
-[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/derogab/coingraph?include_prereleases)](https://github.com/derogab/coingraph/releases)
+[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/derogab/coingraph?include_prereleases?label=Release)](https://github.com/derogab/coingraph/releases)
 [![Build & Push Docker Image](https://github.com/derogab/coingraph/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/derogab/coingraph/actions/workflows/docker-publish.yml)
+[![Docker Pulls](https://img.shields.io/docker/pulls/derogab/coingraph-daemon?label=Downloads&logo=docker)](https://hub.docker.com/r/derogab/coingraph-daemon)
 
 ###### Build image from source
 ```shell

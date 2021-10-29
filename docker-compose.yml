@@ -21,6 +21,6 @@ services:
       - daemon
     image: ghcr.io/derogab/coingraph-client:latest
     ports:
-      - '3000:3000'
+      - '3000:80'
     env_file:
       - .env
