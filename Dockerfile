@@ -13,10 +13,6 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY package*.json ./
 RUN npm install
 
-# Set tmp environment variables
-RUN export REACT_APP_DAEMON_SOCKET_URL={{url}}
-RUN export REACT_APP_DAEMON_SOCKET_PORT={{port}}
-
 # Copy app
 COPY . .
 
