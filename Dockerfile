@@ -34,6 +34,9 @@ WORKDIR /usr/src/app
 COPY entrypoint.sh .
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 
+# Make the entrypoint executable
+RUN chmod +x ./entrypoint.sh
+
 # Expose ports 
 EXPOSE 80
 
