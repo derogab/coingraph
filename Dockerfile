@@ -21,7 +21,7 @@ RUN npm run build
 
 
 # production environment
-FROM nginx:stable
+FROM nginx:alpine
 
 # Create app directory
 WORKDIR /usr/src/app
