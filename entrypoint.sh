@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 echo "Starting coingraph client..."
 
 # Replace ENVs in static files
