@@ -27,7 +27,7 @@
     "sass": "^1.45.1"
   },
   "scripts": {
-    "daemon": "cd daemon && yarn start",
+    "daemon": "cd daemon && npm run start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
