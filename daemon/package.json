@@ -7,7 +7,7 @@
   "main": "app.js",
   "dependencies": {
     "axios": "^0.26.0",
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "lowdb": "^1.0.0",
     "minimist": "^1.2.5",
