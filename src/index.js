@@ -1,15 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { io } from 'socket.io-client';
-import dotenv from 'dotenv';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import 'antd/dist/antd.css';
 import './index.scss';
-
-dotenv.config();
 
 const SOCKET_URL = process.env.REACT_APP_DAEMON_SOCKET_URL || 'http://localhost';
 const SOCKET_PORT = process.env.REACT_APP_DAEMON_SOCKET_PORT || 8081;

@@ -1,17 +1,17 @@
 {
   "name": "coingraph-daemon",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "derogab",
   "description": "A daemon for coingraph",
   "license": "MIT",
   "main": "app.js",
   "dependencies": {
-    "axios": "^0.24.0",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
+    "axios": "^0.26.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
     "lowdb": "^1.0.0",
-    "minimist": "^1.2.0",
-    "socket.io": "^4.3.1"
+    "minimist": "^1.2.5",
+    "socket.io": "^4.4.1"
   },
   "scripts": {
     "start": "node app.js"

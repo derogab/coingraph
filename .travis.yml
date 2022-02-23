@@ -2,4 +2,4 @@ language: node_js
 node_js:
   - 'stable'
 script:
-  - 'yarn test --ci --no-watch --no-watchman --watchAll=false --detectOpenHandles --forceExit'
+  - 'nm run test --ci --no-watch --no-watchman --watchAll=false --detectOpenHandles --forceExit'
