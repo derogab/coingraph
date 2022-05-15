@@ -99,7 +99,7 @@ jobs:
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v4
         with:
           images: ${{ env.GITHUB_REGISTRY }}/${{ env.IMAGE_NAME_DAEMON }}
           tags: |
@@ -156,7 +156,7 @@ jobs:
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v4
         with:
           images: ${{ env.GITHUB_REGISTRY }}/${{ env.IMAGE_NAME_CLIENT }}
           tags: |
@@ -213,7 +213,7 @@ jobs:
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v4
         with:
           images: ${{ env.IMAGE_NAME_DAEMON }}
           tags: |
@@ -270,7 +270,7 @@ jobs:
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v4
         with:
           images: ${{ env.IMAGE_NAME_CLIENT }}
           tags: |
