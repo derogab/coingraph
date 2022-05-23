@@ -7,7 +7,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
-    "antd": "^4.20.5",
+    "antd": "^4.20.6",
     "axios": "^0.27.2",
     "lodash.get": "^4.4.2",
     "prop-types": "^15.8.1",
