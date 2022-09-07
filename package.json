@@ -13,7 +13,7 @@
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "recharts": "^2.1.13",
+    "recharts": "^2.1.14",
     "socket.io": "^4.5.2",
     "socket.io-client": "^4.5.2"
   },
