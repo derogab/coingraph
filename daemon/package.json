@@ -1,6 +1,6 @@
 {
   "name": "coingraph-daemon",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "derogab",
   "description": "A daemon for coingraph",
   "license": "MIT",
