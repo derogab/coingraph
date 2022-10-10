@@ -43,7 +43,7 @@ export default class Info extends Component {
             title="Coingraph"
             id="info-modal" 
             className="info-modal"
-            visible={this.state.open}
+            open={this.state.open}
             onOk={this.handleOkModal}
             onCancel={this.handleCancelModal}
             footer={[]}

@@ -43,7 +43,7 @@ export default class Settings extends Component {
           <Modal
             title="Settings"
             id="settings-modal" 
-            visible={this.state.open}
+            open={this.state.open}
             onOk={this.handleOkModal}
             onCancel={this.handleCancelModal}
             footer={[
