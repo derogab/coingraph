@@ -1,29 +1,28 @@
 {
   "name": "coingraph",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "author": "derogab",
   "description": "A real-time graph for cryptocurrencies",
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
-    "antd": "^4.23.2",
-    "axios": "^0.27.2",
-    "lodash.get": "^4.4.2",
-    "prop-types": "^15.8.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "recharts": "^2.1.14",
-    "socket.io": "^4.5.2",
-    "socket.io-client": "^4.5.2"
+    "@ant-design/icons": "4.7.0",
+    "antd": "4.23.4",
+    "lodash.get": "4.4.2",
+    "prop-types": "15.8.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "recharts": "2.1.14",
+    "socket.io": "4.5.2",
+    "socket.io-client": "4.5.2"
   },
   "devDependencies": {
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
-    "enzyme": "^3.11.0",
-    "moxios": "^0.4.0",
-    "npm-run-all": "^4.1.5",
-    "react-scripts": "^5.0.1",
-    "sass": "^1.55.0"
+    "@wojtekmaj/enzyme-adapter-react-17": "0.6.7",
+    "enzyme": "3.11.0",
+    "moxios": "0.4.0",
+    "npm-run-all": "4.1.5",
+    "react-scripts": "5.0.1",
+    "sass": "1.55.0"
   },
   "scripts": {
     "daemon": "cd daemon && npm run start",

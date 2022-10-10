@@ -6,7 +6,7 @@ module.exports = function(db, io, app, config) {
      * Cryptocurrencies 
      * 
     */
-    cryptocurrencies = config.cryptocurrencies;
+    const cryptocurrencies = config.cryptocurrencies;
 
     /** 
      * Real Time Data
@@ -59,7 +59,7 @@ module.exports = function(db, io, app, config) {
         .catch(function (error) {
             console.log(error);
         })
-        .then(function () {
+        .finally(function () {
             // always executed
             setTimeout(function(){ 
                 realtime(crypto);    
