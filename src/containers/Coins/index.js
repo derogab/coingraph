@@ -14,13 +14,22 @@ export default class CoinsContainer extends Component {
     static propTypes = {
         socket: PropTypes.shape({
             on: PropTypes.func.isRequired
-        }).isRequired
-    }
+        }).isRequired,
+        
+        time: PropTypes.object.isRequired
+    };
     constructor(props) {
-        super(props)
+        super(props);
+        
+
+        // Get cookies and configs
+        const { time } = props;
+
         this.state = {
+            time: time,
             coinsData: {}
-        }
+        };
+
         this.isUnmounting = false
     }
 
@@ -36,16 +45,24 @@ export default class CoinsContainer extends Component {
     }
 
     onNewData = (value) => {
-        const now = new Date(Date.now());
-        const one_week_ago = new Date(Date.now());
-              one_week_ago.setDate(one_week_ago.getDate() - 7);
+        const { time, coinsData } = this.state
 
-        const {coinsData} = this.state
+        // Calculate seconds to use
+        let seconds = 7 * 24 * 60 * 60; // default = 1w
+        if (time === "1h") seconds = 60 * 60; // 1 hour
+        if (time === "1d") seconds = 24 * 60 * 60; // 1 day
+        if (time === "1w") seconds = 7 * 24 * 60 * 60; // 1 week
+        if (time === "1h") seconds = 30 * 24 * 60 * 60; // about 1 month
+        const milliseconds = seconds * 1000;
+
+        const now = new Date();
+        const time_to_start = new Date(now.getTime() - milliseconds);
+        
         const newData = {
             graph: (get(coinsData, [value.id, 'graph'], []).concat(value.graph)).filter((element) => {
                 // only one week data show
                 var ttd = new Date(element.time); // time of this data
-                if(ttd >= one_week_ago && ttd <= now) {
+                if(ttd >= time_to_start && ttd <= now) {
                     return true;
                 }
                 

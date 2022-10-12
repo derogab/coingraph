@@ -17,10 +17,13 @@ function App({socket}) {
   const cookies = new Cookies(cookiesObj);
   // Init theme state
   const [theme, setTheme] = useState(cookies.get('theme') || 'light');
+  // Init chart time state
+  const [time, setTime] = useState(cookies.get('time') || '1w');
   
   // Set settings configurations
   const settingsConfigs = {
     setTheme, // change theme
+    setTime, // change time chart
   };
 
   // Init layout
@@ -30,9 +33,9 @@ function App({socket}) {
     <CookiesProvider>
       <Layout className={`App ${theme}`}>
         <Content className='content'>
-          <CoinsContainer socket={socket} />
+          <CoinsContainer socket={socket} time={time} />
         </Content>
-        <MyFooter cookies={cookies} settingsConfigs={settingsConfigs}/>
+        <MyFooter cookies={cookies} settingsConfigs={settingsConfigs} />
       </Layout>
     </CookiesProvider>
   );

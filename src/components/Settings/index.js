@@ -5,6 +5,7 @@ import PropTypes, { instanceOf } from 'prop-types';
 import { Modal, Button, Row, Col } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 import DarkModeSwitch from './DarkModeSwitch';
+import ChartTime from './ChartTime';
 
 import 'antd/dist/antd.css';
 import './index.scss';
@@ -64,10 +65,17 @@ export default class Settings extends Component {
             ]}
           >
             
-            <Row>
+            <Row className='setting-row'>
               <Col span={14}>Dark Mode</Col>
               <Col span={10}>
                 <DarkModeSwitch cookies={this.state.cookies} settingsConfigs={this.state.settingsConfigs} />
+              </Col>
+            </Row>
+
+            <Row className='setting-row'>
+              <Col span={14}>Chart Time</Col>
+              <Col span={10}>
+                <ChartTime cookies={this.state.cookies} settingsConfigs={this.state.settingsConfigs} />
               </Col>
             </Row>
             
