@@ -7,8 +7,8 @@ import { Layout } from 'antd';
 import CoinsContainer from './containers/Coins';
 import MyFooter from './containers/MyFooter';
 
-import ThemeContext from './contexts/ThemeContext';
-import TimeChartContext from './contexts/TimeChartContext';
+import ThemeContext, { THEME } from './contexts/ThemeContext';
+import TimeChartContext, { TIME } from './contexts/TimeChartContext';
 
 import './theme.scss';
 import './App.scss';
@@ -19,9 +19,9 @@ function App({socket}) {
   const [ cookiesObj ] = useCookies(['theme']);
   const cookies = new Cookies(cookiesObj);
   // Init theme state
-  const [theme, setTheme] = useState(cookies.get('theme') || 'light');
+  const [theme, setTheme] = useState(cookies.get('theme') || THEME.LIGHT);
   // Init chart time state
-  const [time, setTime] = useState(cookies.get('time') || '1w');
+  const [time, setTime] = useState(cookies.get('time') || TIME.WEEK);
 
   // Init layout
   const { Content } = Layout;
