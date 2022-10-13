@@ -8,6 +8,7 @@ import CoinsContainer from './containers/Coins';
 import MyFooter from './containers/MyFooter';
 
 import ThemeContext from './contexts/ThemeContext';
+import TimeChartContext from './contexts/TimeChartContext';
 
 import './theme.scss';
 import './App.scss';
@@ -34,12 +35,14 @@ function App({socket}) {
   return (
     <CookiesProvider>
       <ThemeContext.Provider value={{theme, setTheme}}>
-        <Layout className={`App ${theme}`}>
-          <Content className='content'>
-            <CoinsContainer socket={socket} time={time} />
-          </Content>
-          <MyFooter cookies={cookies} settingsConfigs={settingsConfigs} />
-        </Layout>
+        <TimeChartContext.Provider value={{time, setTime}}>
+          <Layout className={`App ${theme}`}>
+            <Content className='content'>
+              <CoinsContainer socket={socket} time={time} />
+            </Content>
+            <MyFooter cookies={cookies} settingsConfigs={settingsConfigs} />
+          </Layout>
+        </TimeChartContext.Provider>
       </ThemeContext.Provider>
     </CookiesProvider>
   );
