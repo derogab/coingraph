@@ -7,6 +7,8 @@ import { Layout } from 'antd';
 import CoinsContainer from './containers/Coins';
 import MyFooter from './containers/MyFooter';
 
+import ThemeContext from './contexts/ThemeContext';
+
 import './theme.scss';
 import './App.scss';
 
@@ -31,12 +33,14 @@ function App({socket}) {
   // Render app
   return (
     <CookiesProvider>
-      <Layout className={`App ${theme}`}>
-        <Content className='content'>
-          <CoinsContainer socket={socket} time={time} />
-        </Content>
-        <MyFooter cookies={cookies} settingsConfigs={settingsConfigs} />
-      </Layout>
+      <ThemeContext.Provider value={{theme, setTheme}}>
+        <Layout className={`App ${theme}`}>
+          <Content className='content'>
+            <CoinsContainer socket={socket} time={time} />
+          </Content>
+          <MyFooter cookies={cookies} settingsConfigs={settingsConfigs} />
+        </Layout>
+      </ThemeContext.Provider>
     </CookiesProvider>
   );
 }
