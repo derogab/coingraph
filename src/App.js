@@ -22,12 +22,6 @@ function App({socket}) {
   const [theme, setTheme] = useState(cookies.get('theme') || 'light');
   // Init chart time state
   const [time, setTime] = useState(cookies.get('time') || '1w');
-  
-  // Set settings configurations
-  const settingsConfigs = {
-    setTheme, // change theme
-    setTime, // change time chart
-  };
 
   // Init layout
   const { Content } = Layout;
@@ -40,7 +34,7 @@ function App({socket}) {
             <Content className='content'>
               <CoinsContainer socket={socket} time={time} />
             </Content>
-            <MyFooter cookies={cookies} settingsConfigs={settingsConfigs} />
+            <MyFooter cookies={cookies} />
           </Layout>
         </TimeChartContext.Provider>
       </ThemeContext.Provider>

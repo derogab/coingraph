@@ -14,18 +14,16 @@ export default class Settings extends Component {
 
     static propTypes = {
       cookies: instanceOf(Cookies).isRequired,
-      settingsConfigs: PropTypes.object.isRequired,
     };
 
     constructor (props) {
       super(props);
       // Get cookies and configs
-      const { cookies, settingsConfigs } = props;
+      const { cookies } = props;
       // Set stateful data
       this.state = {
         open: false,
         cookies: cookies,
-        settingsConfigs: settingsConfigs,
       };
       // Bind everything
       this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -68,14 +66,14 @@ export default class Settings extends Component {
             <Row className='setting-row'>
               <Col span={14}>Dark Mode</Col>
               <Col span={10}>
-                <DarkModeSwitch cookies={this.state.cookies} settingsConfigs={this.state.settingsConfigs} />
+                <DarkModeSwitch cookies={this.state.cookies} />
               </Col>
             </Row>
 
             <Row className='setting-row'>
               <Col span={14}>Chart Time</Col>
               <Col span={10}>
-                <ChartTime cookies={this.state.cookies} settingsConfigs={this.state.settingsConfigs} />
+                <ChartTime cookies={this.state.cookies} />
               </Col>
             </Row>
             

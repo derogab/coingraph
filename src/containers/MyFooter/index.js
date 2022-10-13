@@ -15,17 +15,15 @@ export default class MyFooter extends Component {
 
     static propTypes = {
         cookies: instanceOf(Cookies).isRequired,
-        settingsConfigs: PropTypes.object.isRequired,
     };
 
     constructor (props) {
         super(props);
         // Get cookies and configs
-        const { cookies, settingsConfigs } = props;
+        const { cookies } = props;
         // Set stateful data
         this.state = {
             cookies: cookies,
-            settingsConfigs: settingsConfigs,
         };
     }
 
@@ -41,7 +39,7 @@ export default class MyFooter extends Component {
                     </Col>
                     <Col span={12}>
                         <div className="settings-right">
-                            <Settings cookies={this.state.cookies} settingsConfigs={this.state.settingsConfigs} />
+                            <Settings cookies={this.state.cookies} />
                         </div>
                     </Col>
                 </Row>
