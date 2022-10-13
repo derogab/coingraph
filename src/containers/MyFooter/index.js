@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PropTypes, { instanceOf } from 'prop-types';
+import { instanceOf } from 'prop-types';
 import { Cookies } from 'react-cookie';
 
 import { Layout, Row, Col } from 'antd';
