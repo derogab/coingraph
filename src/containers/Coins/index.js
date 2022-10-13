@@ -4,6 +4,8 @@ import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import get from 'lodash.get';
 
+import TimeChartContext, { TIME } from '../../contexts/TimeChartContext';
+
 import Coin from '../../components/Coin';
 
 import 'antd/dist/antd.css';
@@ -11,22 +13,18 @@ import './index.scss';
 
 export default class CoinsContainer extends Component {
 
+    static contextType = TimeChartContext;
+
     static propTypes = {
         socket: PropTypes.shape({
             on: PropTypes.func.isRequired
-        }).isRequired,
-        
-        time: PropTypes.object.isRequired
+        }).isRequired,        
     };
+
     constructor(props) {
         super(props);
-        
-
-        // Get cookies and configs
-        const { time } = props;
 
         this.state = {
-            time: time,
             coinsData: {}
         };
 
@@ -45,14 +43,14 @@ export default class CoinsContainer extends Component {
     }
 
     onNewData = (value) => {
-        const { time, coinsData } = this.state
+        const { coinsData } = this.state
 
         // Calculate seconds to use
         let seconds = 7 * 24 * 60 * 60; // default = 1w
-        if (time === "1h") seconds = 60 * 60; // 1 hour
-        if (time === "1d") seconds = 24 * 60 * 60; // 1 day
-        if (time === "1w") seconds = 7 * 24 * 60 * 60; // 1 week
-        if (time === "1h") seconds = 30 * 24 * 60 * 60; // about 1 month
+        if (this.context.time === TIME.HOUR) seconds = 60 * 60; // 1 hour
+        if (this.context.time === TIME.DAY) seconds = 24 * 60 * 60; // 1 day
+        if (this.context.time === TIME.MONTH) seconds = 7 * 24 * 60 * 60; // 1 week
+        if (this.context.time === TIME.WEEK) seconds = 30 * 24 * 60 * 60; // about 1 month
         const milliseconds = seconds * 1000;
 
         const now = new Date();
