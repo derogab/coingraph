@@ -16,7 +16,7 @@ import './App.scss';
 
 function App({socket}) {
   // Init cookies
-  const [ cookiesObj ] = useCookies(['theme']);
+  const [ cookiesObj ] = useCookies(['theme', 'time']);
   const cookies = new Cookies(cookiesObj);
   // Init theme state
   const [theme, setTheme] = useState(cookies.get('theme') || THEME.LIGHT);
