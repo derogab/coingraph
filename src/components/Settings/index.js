@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Cookies } from 'react-cookie';
-import PropTypes, { instanceOf } from 'prop-types';
+import { instanceOf } from 'prop-types';
 
 import { Modal, Button, Row, Col } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
@@ -18,12 +18,9 @@ export default class Settings extends Component {
 
     constructor (props) {
       super(props);
-      // Get cookies and configs
-      const { cookies } = props;
       // Set stateful data
       this.state = {
         open: false,
-        cookies: cookies,
       };
       // Bind everything
       this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -66,14 +63,14 @@ export default class Settings extends Component {
             <Row className='setting-row'>
               <Col span={14}>Dark Mode</Col>
               <Col span={10}>
-                <DarkModeSwitch cookies={this.state.cookies} />
+                <DarkModeSwitch cookies={this.props.cookies} />
               </Col>
             </Row>
 
             <Row className='setting-row'>
               <Col span={14}>Chart Time</Col>
               <Col span={10}>
-                <ChartTime cookies={this.state.cookies} />
+                <ChartTime cookies={this.props.cookies} />
               </Col>
             </Row>
             
