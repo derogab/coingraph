@@ -17,23 +17,13 @@ export default class DarkModeSwitch extends Component {
     cookies: instanceOf(Cookies).isRequired,
   };
 
-  constructor(props) {
-    super(props);
-    // Get cookies and configs
-    const { cookies } = props;
-    // Set stateful data
-    this.state = {
-      cookies: cookies,
-    };
-  }
-  
   handleChange = (checked) => {
     // Get theme selected
     const newTheme = checked ? THEME.DARK : THEME.LIGHT;
     // Change theme
     this.context.setTheme(newTheme);
     // Update cookie theme config
-    this.state.cookies.set('theme', newTheme, { path: '/' });
+    this.props.cookies.set('theme', newTheme, { path: '/' });
   }
   
   render () {
