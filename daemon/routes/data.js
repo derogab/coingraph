@@ -14,6 +14,9 @@ module.exports = function(db, io, app, config) {
     */
     function realtime(crypto) {
         axios.get(config.url + crypto, {
+            headers: {
+                "Accept-Encoding": "gzip,deflate,compress"
+            },
             params: {
                 
             }
