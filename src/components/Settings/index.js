@@ -6,7 +6,6 @@ import { Modal, Button, Row, Col } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 import DarkModeSwitch from './DarkModeSwitch';
 
-import 'antd/dist/antd.css';
 import './index.scss';
 
 export default class Settings extends Component {

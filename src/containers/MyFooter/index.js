@@ -7,7 +7,6 @@ import { Layout, Row, Col } from 'antd';
 import Settings from '../../components/Settings';
 import Info from '../../components/Info';
 
-import 'antd/dist/antd.css';
 import './index.scss';
 
 

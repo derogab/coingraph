@@ -6,7 +6,6 @@ import {
   LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip
 } from 'recharts';
 
-import 'antd/dist/antd.css';
 import './index.scss';
 
 const CustomTooltip = ({ active, payload, label }) => {

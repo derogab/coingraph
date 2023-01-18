@@ -4,7 +4,6 @@ import { Modal, Row, Col } from 'antd';
 
 import packageJson from '../../../package.json';
 
-import 'antd/dist/antd.css';
 import './index.scss';
 
 export default class Info extends Component {

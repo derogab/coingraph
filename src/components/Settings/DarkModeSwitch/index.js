@@ -4,7 +4,6 @@ import { Cookies } from 'react-cookie';
 
 import { Switch } from 'antd';
 
-import 'antd/dist/antd.css';
 import './index.scss';
 
 export default class DarkModeSwitch extends Component {

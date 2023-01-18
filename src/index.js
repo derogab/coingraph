@@ -5,7 +5,6 @@ import { io } from 'socket.io-client';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import 'antd/dist/antd.css';
 import './index.scss';
 
 const SOCKET_URL = process.env.REACT_APP_DAEMON_SOCKET_URL || 'http://localhost';
