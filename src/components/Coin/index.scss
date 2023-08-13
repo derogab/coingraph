@@ -17,6 +17,11 @@
     font-size: 2em;
 }
 
+.box-data h6 {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
 .custom-tooltip {
     color: var(--theme-graph-tooltip-text);
     background-color: var(--theme-graph-tooltip-background);

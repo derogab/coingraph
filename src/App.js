@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Cookies, CookiesProvider, useCookies } from 'react-cookie';
 
 import { Layout } from 'antd';
-import ThemeContext from './ThemeContext';
+
 import CoinsContainer from './containers/Coins';
 import MyFooter from './containers/MyFooter';
 
@@ -11,20 +12,29 @@ import './App.scss';
 
 
 function App({socket}) {
+  // Init cookies
+  const [ cookiesObj ] = useCookies(['theme']);
+  const cookies = new Cookies(cookiesObj);
+  // Init theme state
+  const [theme, setTheme] = useState(cookies.get('theme') || 'light');
+  
+  // Set settings configurations
+  const settingsConfigs = {
+    setTheme, // change theme
+  };
 
-  const [theme, setTheme] = useState('light'); // default = light
-
+  // Init layout
   const { Content } = Layout;
-
+  // Render app
   return (
-    <ThemeContext.Provider value={{theme, setTheme}}>
+    <CookiesProvider>
       <Layout className={`App ${theme}`}>
         <Content className='content'>
           <CoinsContainer socket={socket} />
         </Content>
-        <MyFooter />
+        <MyFooter cookies={cookies} settingsConfigs={settingsConfigs}/>
       </Layout>
-    </ThemeContext.Provider>
+    </CookiesProvider>
   );
 }
 App.propTypes = {

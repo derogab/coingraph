@@ -4,7 +4,6 @@ import { Modal, Row, Col } from 'antd';
 
 import packageJson from '../../../package.json';
 
-import 'antd/dist/antd.css';
 import './index.scss';
 
 export default class Info extends Component {
@@ -43,7 +42,7 @@ export default class Info extends Component {
             title="Coingraph"
             id="info-modal" 
             className="info-modal"
-            visible={this.state.open}
+            open={this.state.open}
             onOk={this.handleOkModal}
             onCancel={this.handleCancelModal}
             footer={[]}

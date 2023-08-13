@@ -6,7 +6,6 @@ import get from 'lodash.get';
 
 import Coin from '../../components/Coin';
 
-import 'antd/dist/antd.css';
 import './index.scss';
 
 export default class CoinsContainer extends Component {

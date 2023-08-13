@@ -1,7 +1,6 @@
 import React from 'react';
 import { Col } from 'antd';
 
-import 'antd/dist/antd.css';
 import './index.scss';
 
 export function CashData({data, value}) {
