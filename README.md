@@ -1,7 +1,7 @@
 # Coingraph
 
 [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/derogab/coingraph?include_prereleases)](https://github.com/derogab/coingraph/releases)
-[![Travis (.org)](https://img.shields.io/travis/derogab/coingraph)](https://travis-ci.com/derogab/coingraph/)
+[![Build & Push Docker Image](https://github.com/derogab/coingraph/actions/workflows/docker-publish.yml/badge.svg?branch=master)](https://github.com/derogab/coingraph/actions/workflows/docker-publish.yml)
 [![GitHub stars](https://img.shields.io/github/stars/derogab/coingraph)](https://github.com/derogab/coingraph/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/derogab/coingraph)](https://github.com/derogab/coingraph/network)
 [![GitHub issues](https://img.shields.io/github/issues/derogab/coingraph)](https://github.com/derogab/coingraph/issues)
