@@ -11,7 +11,7 @@
     "lodash.get": "4.4.2",
     "prop-types": "15.8.1",
     "react": "17.0.2",
-    "react-cookie": "6.1.0",
+    "react-cookie": "6.1.1",
     "react-dom": "17.0.2",
     "recharts": "2.8.0",
     "socket.io": "4.7.2",
