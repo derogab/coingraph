@@ -185,6 +185,7 @@ jobs:
 
     name: Build Daemon & Push to Docker Hub
     runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' # no need to exec same build two times during PR (no final push)
     permissions:
       contents: read
       packages: write
@@ -242,6 +243,7 @@ jobs:
 
     name: Build Client & Push to Docker Hub
     runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' # no need to exec same build two times during PR (no final push)
     permissions:
       contents: read
       packages: write
