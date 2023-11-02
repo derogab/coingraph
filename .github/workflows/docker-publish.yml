@@ -69,7 +69,7 @@ jobs:
     # Ensure test job passes before pushing image.
     needs: test-daemon
 
-    name: Build Daemon & Push
+    name: Build & Push Daemon
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -134,7 +134,7 @@ jobs:
     # Ensure test job passes before pushing image.
     needs: test-client
 
-    name: Build Client & Push
+    name: Build & Push Client
     runs-on: ubuntu-latest
     permissions:
       contents: read
