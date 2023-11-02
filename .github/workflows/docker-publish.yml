@@ -173,7 +173,6 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: 
           images: |
             ${{ env.IMAGE_NAME_CLIENT }}
             ${{ env.GITHUB_REGISTRY }}/${{ env.IMAGE_NAME_CLIENT }}
