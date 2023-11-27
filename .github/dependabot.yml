@@ -38,3 +38,25 @@ updates:
       - 'derogab'
     labels:
       - 'dependencies'
+
+  # Maintain dependencies for Docker
+  # in root folder
+  - package-ecosystem: 'docker'
+    directory: '/'
+    target-branch: 'dev'
+    schedule:
+      interval: 'monthly'
+    assignees:
+      - 'derogab'
+    labels:
+      - 'dependencies'
+  # and in /daemon folder
+  - package-ecosystem: 'docker'
+    directory: '/daemon'
+    target-branch: 'dev'
+    schedule:
+      interval: 'monthly'
+    assignees:
+      - 'derogab'
+    labels:
+      - 'dependencies'
