@@ -1,5 +1,5 @@
 # build environment
-FROM node:lts as build
+FROM node:20.18 as build
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -21,7 +21,7 @@ RUN npm run build
 
 
 # production environment
-FROM nginx:alpine
+FROM nginx:1.27-alpine
 
 # Create app directory
 WORKDIR /usr/src/app
