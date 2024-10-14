@@ -23,7 +23,7 @@ updates:
     directory: '/'
     target-branch: 'dev'
     schedule:
-      interval: 'weekly'
+      interval: 'monthly'
     assignees:
       - 'derogab'
     labels:
@@ -33,7 +33,7 @@ updates:
     directory: '/daemon'
     target-branch: 'dev'
     schedule:
-      interval: 'weekly'
+      interval: 'monthly'
     assignees:
       - 'derogab'
     labels:
