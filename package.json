@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@ant-design/icons": "5.4.0",
+    "@ant-design/icons": "5.5.1",
     "antd": "5.20.6",
     "lodash.get": "4.4.2",
     "prop-types": "15.8.1",
