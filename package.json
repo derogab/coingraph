@@ -11,10 +11,10 @@
     "lodash.get": "4.4.2",
     "prop-types": "15.8.1",
     "react": "17.0.2",
-    "react-cookie": "6.1.1",
+    "react-cookie": "7.2.1",
     "react-dom": "17.0.2",
     "recharts": "2.10.3",
-    "socket.io": "4.7.2",
+    "socket.io": "4.8.0",
     "socket.io-client": "4.7.2"
   },
   "devDependencies": {
