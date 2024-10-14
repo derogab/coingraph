@@ -1,5 +1,5 @@
 # build environment
-FROM node:20.18 as build
+FROM node:22.9 as build
 
 # Create app directory
 WORKDIR /usr/src/app
