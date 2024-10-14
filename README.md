@@ -7,7 +7,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/derogab/coingraph)](https://github.com/derogab/coingraph/issues)
 [![GitHub License](https://img.shields.io/github/license/derogab/coingraph)](https://github.com/derogab/coingraph/blob/master/LICENSE)
 
-Coingraph is a **real-time graph for cryptocurrencies**.
+Coingraph is a **real-time graph for cryptocurrencies** that fetches real-time cryptocurrency prices, saves the data offline in a JSON file at regular intervals, and displays it through a minimalistic graph on a web interface.
 
 ![](./assets/header.png)
 
