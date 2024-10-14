@@ -11,7 +11,7 @@
     "express": "4.21.1",
     "lowdb": "1.0.0",
     "minimist": "1.2.8",
-    "socket.io": "4.7.5"
+    "socket.io": "4.8.0"
   },
   "scripts": {
     "start": "node app.js"
