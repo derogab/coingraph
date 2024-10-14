@@ -57,7 +57,7 @@ docker-compose -f docker-compose.dev.yml up -d
 docker-compose -f docker-compose.build.yml up -d --build
 ```
 
-### Tip
+## Tip
 If you like this project or directly benefit from it, please consider [buying me a coffee](https://derogab.com/donate).
 
 ## License
