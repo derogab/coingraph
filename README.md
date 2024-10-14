@@ -1,3 +1,5 @@
+> **Repository Archival Notice**: Coingraph is being archived due to inactivity and the availability of more comprehensive alternatives in the cryptocurrency monitoring space. Originally developed in 2017, Coingraph is _a tool that fetches real-time cryptocurrency prices, saves the data offline in a JSON file at regular intervals, and displays it through a minimalistic graph on a web interface_. While the project will no longer be actively maintained, the repository can be reopened if there is community interest in contributing. If you are interested in submitting a pull request or expanding the tool's functionality — such as adding API support for data access or enhancing settings — please contact me first at _coingraph at derogab dot com_.
+
 # Coingraph
 
 [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/derogab/coingraph?include_prereleases)](https://github.com/derogab/coingraph/releases)
