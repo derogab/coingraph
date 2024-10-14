@@ -57,5 +57,8 @@ docker-compose -f docker-compose.dev.yml up -d
 docker-compose -f docker-compose.build.yml up -d --build
 ```
 
+## Tip
+If you like this project or directly benefit from it, please consider [buying me a coffee](https://derogab.com/donate).
+
 ## License
 [_Coingraph_](https://github.com/derogab/coingraph) is made with ♥  by [derogab](https://github.com/derogab) and the [amazing dev team](https://github.com/derogab/coingraph/graphs/contributors). It is released under the MIT license.
